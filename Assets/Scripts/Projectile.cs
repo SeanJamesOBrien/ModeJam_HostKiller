@@ -3,23 +3,23 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
+    [SerializeField] int damage;
 
     void Update()
     {
         transform.Translate(Vector3.up * movementSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("colliison " + collision.gameObject.tag);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger " + collision.tag);
-        if (collision.tag != "Player")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Destroy(gameObject);
+            return; 
         }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            collision.gameObject.GetComponent<IDamageable>().CalculateDamage(damage);
+        }
+        Destroy(gameObject);
     }
 }
