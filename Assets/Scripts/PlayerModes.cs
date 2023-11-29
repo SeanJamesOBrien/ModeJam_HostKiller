@@ -1,4 +1,4 @@
 public enum PlayerModes
 {
-    Melee, Closest, Cross
+    Melee, Cross
 }

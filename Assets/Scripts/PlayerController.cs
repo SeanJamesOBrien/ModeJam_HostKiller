@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
     [Header("Combat")]
-    PlayerModes currentMode = PlayerModes.Cross;
+    //PlayerModes currentMode = PlayerModes.Cross;
+    bool isMeleeMode = false;
     [SerializeField] float attackSpeed = 0.75f;
     [SerializeField] GameObject projectile;
     float time = 0;
-   // Quaternion angle;
 
     void Awake()
     {
@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-  
-
     void FixedUpdate()
     {
         Movement();
@@ -52,41 +50,28 @@ public class PlayerController : MonoBehaviour
 
     private void ToggleMode()
     {
-        throw new NotImplementedException();
+        isMeleeMode = !isMeleeMode;
     }
 
     private void HandleMode()
     {
-            switch (currentMode)
+        if (isMeleeMode)
         {
-            case PlayerModes.Melee:
-                break;
-            case PlayerModes.Closest:
-                break;
-            case PlayerModes.Cross:
-                CrossFire();
-                break;
+            Melee();
         }
+        else
+        {
+            CrossFire();
+        }
+    }
 
+    private void Melee()
+    {
+        Debug.Log("melee attack");
     }
 
     private void CrossFire()
     {
-
-        //for (int i = 0; i < numProjectiles; i++)
-        //{
-            
-        //   // IProjectile bullet = BulletPoolController.SharedInstance.GetPooledBossBullet();
-        //    //bullet.Transform.gameObject.SetActive(true);
-        //    bullet.Transform.position = transform.position;
-        //    bullet.Transform.rotation = i;
-        //    bullet.ResetBullet();
-        //    bullet.Damage = damage;
-        //    bullet.Speed = projectileSpeed;
-        //    angle.eulerAngles = new Vector3(0, 0, rotateAngle + i * (360 / numProjectiles));
-        //}
-        //rotateAngle += angleIncrement;
-
         for (int i = 45; i < 360; i+=90)
         {
             GameObject newProjectile = Instantiate(projectile);
