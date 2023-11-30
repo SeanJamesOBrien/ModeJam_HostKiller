@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,8 +8,13 @@ public class PlayerController : MonoBehaviour
     [Header("Combat")]
     //PlayerModes currentMode = PlayerModes.Cross;
     bool isMeleeMode = false;
-    [SerializeField] float attackSpeed = 0.75f;
+    [SerializeField] float rangedAttackSpeed = 0.75f;
     [SerializeField] GameObject projectile;
+    [Header("Melee")]
+    [SerializeField] float meleeAttackSpeed = 1.5f;
+    [SerializeField] float meleeRange = 1.5f;
+    [SerializeField] int meleeDamage = 1000;
+    [SerializeField] LayerMask attackMask;
     float time = 0;
 
     void Awake()
@@ -25,11 +29,8 @@ public class PlayerController : MonoBehaviour
             ToggleMode();
         }
         time += Time.deltaTime;
-        if (time > attackSpeed)
-        {
-            HandleMode();
-            time = 0;
-        }
+        
+        HandleMode();          
     }
 
     void FixedUpdate()
@@ -51,23 +52,40 @@ public class PlayerController : MonoBehaviour
     private void ToggleMode()
     {
         isMeleeMode = !isMeleeMode;
+        time = 0;
     }
 
     private void HandleMode()
     {
         if (isMeleeMode)
         {
-            Melee();
+            if (time > meleeAttackSpeed)
+            {
+                Melee();
+            }
         }
         else
         {
-            CrossFire();
+            if (time > rangedAttackSpeed)
+            {
+                CrossFire();
+            }          
         }
     }
 
     private void Melee()
     {
         Debug.Log("melee attack");
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
+        if (colliders.Length > 0)
+        {
+            IDamageable damageable = colliders[Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
+            if(damageable != null)
+            {
+                damageable.CalculateDamage(meleeDamage);
+            }          
+        }
+        time = 0;
     }
 
     private void CrossFire()
@@ -77,6 +95,7 @@ public class PlayerController : MonoBehaviour
             GameObject newProjectile = Instantiate(projectile);
             newProjectile.transform.position = transform.position;
             newProjectile.transform.eulerAngles = new Vector3(0, 0, i);
-        }   
+        }
+        time = 0;
     }
 }
