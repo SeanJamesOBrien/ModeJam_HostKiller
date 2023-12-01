@@ -16,7 +16,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(CheckForFriendlyFire(collision))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(K.DefaultLayer))
+        {
+            return;
+        }
+        if (CheckForFriendlyFire(collision))
         {
             return;
         }
@@ -32,15 +36,14 @@ public class Projectile : MonoBehaviour
     {
         if (IsEnemy)
         {
-            Debug.Log("is enemy?");
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(K.EnemyLayer))
             {
                 return true;
             }
         }
         else
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(K.PlayerLayer))
             {
                 return true;
             }
