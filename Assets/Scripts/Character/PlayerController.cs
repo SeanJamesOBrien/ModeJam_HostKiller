@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private void Melee()
     {
-        Debug.Log("melee attack");
+        //Debug.Log("melee attack");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
         if (colliders.Length > 0)
         {
