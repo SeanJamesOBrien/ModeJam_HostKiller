@@ -2596,12 +2596,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd32350b942a1294db2fd785b712100c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnSettings: {fileID: 11400000, guid: f7df793bdeacb2342bb617deac7b275c, type: 2}
   enemyPrefabs:
   - {fileID: 5855407839908895635, guid: 84e7ad96a569bd84c8f0fae46b7986ac, type: 3}
   - {fileID: 1267903792148522513, guid: 7047dcd607887bc4e93acbf248f7f50f, type: 3}
+  - {fileID: 3500850442422536726, guid: 77f65612aee5f5b41bb5d31c6ae156f2, type: 3}
   - {fileID: 3249181861425706425, guid: 1752c4f81208ef54daf929ff4c84284d, type: 3}
   - {fileID: 6034306753893958873, guid: 10da6b94f816aa74686f73931422b675, type: 3}
-  - {fileID: 3500850442422536726, guid: 77f65612aee5f5b41bb5d31c6ae156f2, type: 3}
   playerPosition: {fileID: 189288554}
   enemyUI: {fileID: 532763094}
   layerMask:
