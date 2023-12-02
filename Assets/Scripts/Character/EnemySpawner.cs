@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] SpawnChanceSO spawnSettings;
     [SerializeField] List<Enemy> enemyPrefabs = new List<Enemy>();
     List<Enemy> enemies = new List<Enemy>();
 
@@ -72,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Enemy GetRandomEnemy()
     {
-        return enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+        return enemyPrefabs[spawnSettings.ChooseSpawnedEnemy()];
     }
 
     private Vector3 GetPosition()
