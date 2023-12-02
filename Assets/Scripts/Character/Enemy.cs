@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
@@ -25,6 +23,15 @@ public class Enemy : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             OnEnemyDestroyed?.Invoke(this);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer(K.PlayerLayer))
+        {
+            collision.gameObject.GetComponent<IDamageable>().CalculateDamage(K.EnemyDamage);
             Destroy(gameObject);
         }
     }

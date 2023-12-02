@@ -11,4 +11,8 @@ public static class K
     public static string MainMenuScene = "MainMenu";
 
     public static float ChargeMultiplier = 2.5f;
+
+    public static int EnemyDamage = 1;
+
+    public static int PlayerStartingHealth = 2;
 }

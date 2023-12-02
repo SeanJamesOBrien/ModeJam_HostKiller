@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    public static event Action OnPlayerDestroyed = delegate { };
+    public static event Action<int> OnHealthChanged = delegate { };
     [Header("Movement")]
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
@@ -10,6 +13,7 @@ public class PlayerController : MonoBehaviour
     bool isMeleeMode = false;
     [SerializeField] float rangedAttackSpeed = 0.75f;
     [SerializeField] GameObject projectile;
+    int health = K.PlayerStartingHealth;
     [Header("Melee")]
     [SerializeField] float meleeAttackSpeed = 1.5f;
     [SerializeField] float meleeRange = 1.5f;
@@ -79,7 +83,7 @@ public class PlayerController : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
         if (colliders.Length > 0)
         {
-            IDamageable damageable = colliders[Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
+            IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
             if(damageable != null)
             {
                 damageable.CalculateDamage(meleeDamage);
@@ -97,5 +101,17 @@ public class PlayerController : MonoBehaviour
             newProjectile.transform.eulerAngles = new Vector3(0, 0, i);
         }
         time = 0;
+    }
+
+    public void CalculateDamage(int damage)
+    {
+        health -= damage;
+        OnHealthChanged?.Invoke(health);
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            OnPlayerDestroyed?.Invoke();
+            Destroy(gameObject);
+        }
     }
 }
