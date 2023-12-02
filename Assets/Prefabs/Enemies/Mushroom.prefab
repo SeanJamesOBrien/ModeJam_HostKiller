@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4959569513304600820}
   - component: {fileID: 5870677727545462538}
   m_Layer: 0
-  m_Name: ChargeAwareness
+  m_Name: Awareness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,14 @@ PrefabInstance:
     - target: {fileID: 596876765076419543, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459858488914059553, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
+      propertyPath: isBoosting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459858488914059553, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
+      propertyPath: hasRandomMovement
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}

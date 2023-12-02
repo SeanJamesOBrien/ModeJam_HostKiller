@@ -19,7 +19,6 @@ public class GameUIController : MonoBehaviour
         PlayerController.OnHealthChanged += PlayerController_OnHealthChanged;    
     }
 
-
     private void OnDestroy()
     {
         PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed; 
