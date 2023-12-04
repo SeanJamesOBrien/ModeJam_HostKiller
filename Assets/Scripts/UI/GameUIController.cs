@@ -8,23 +8,18 @@ public class GameUIController : MonoBehaviour
     [SerializeField] GameObject levelCompletePanel;
     bool isPaused = false;
 
-    [SerializeField] GameObject lastPlayerHealth;
-    [SerializeField] GameObject playerHealth;
-
     private void Start()
     {
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = isPaused;
         PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
-        PlayerController.OnHealthChanged += PlayerController_OnHealthChanged;
         EnemySpawner.OnLevelOver += EnemySpawner_OnLevelOver;
     }
 
     private void OnDestroy()
     {
         PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed; 
-        PlayerController.OnHealthChanged -= PlayerController_OnHealthChanged; 
         EnemySpawner.OnLevelOver -= EnemySpawner_OnLevelOver;
     }
 
@@ -74,18 +69,5 @@ public class GameUIController : MonoBehaviour
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         levelCompletePanel.SetActive(true);
-    }
-
-    private void PlayerController_OnHealthChanged(int health)
-    {
-        //this could be done better
-        if(health == 1)
-        {
-            playerHealth.gameObject.SetActive(false);
-        }
-        else
-        {
-            lastPlayerHealth.gameObject.SetActive(false);
-        }
     }
 }

@@ -14,5 +14,5 @@ public static class K
 
     public static int EnemyDamage = 1;
 
-    public static int PlayerStartingHealth = 2;
+    public static int PlayerStartingHealth = 3;
 }

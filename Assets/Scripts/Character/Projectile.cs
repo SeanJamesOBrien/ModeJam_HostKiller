@@ -14,7 +14,6 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(lifeTime);
         if(lifeTime != 0)
         {
             Invoke(nameof(DestroyProjectile), lifeTime);

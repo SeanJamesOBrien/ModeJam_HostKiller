@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] int meleeDamage = 1000;
     [SerializeField] LayerMask attackMask;
     float time = 0;
+    [SerializeField] float healthRegen = 1f;
+    float healthRegenTimer = 0;
 
     void Awake()
     {
@@ -40,6 +42,27 @@ public class PlayerController : MonoBehaviour, IDamageable
     void FixedUpdate()
     {
         Movement();
+        HealthRegen();
+    }
+
+    private void HealthRegen()
+    {
+        
+        if (health < K.PlayerStartingHealth)
+        {
+            healthRegenTimer += Time.fixedDeltaTime;
+            if(healthRegenTimer > healthRegen) 
+            {
+                health++;
+                healthRegenTimer = 0;
+                OnHealthChanged?.Invoke(health);
+                Debug.Log("health " + health);
+            }
+            
+        }
+        
+
+
     }
 
     private void Movement()
