@@ -46,8 +46,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
     private void HealthRegen()
-    {
-        
+    {      
         if (health < K.PlayerStartingHealth)
         {
             healthRegenTimer += Time.fixedDeltaTime;
@@ -56,13 +55,8 @@ public class PlayerController : MonoBehaviour, IDamageable
                 health++;
                 healthRegenTimer = 0;
                 OnHealthChanged?.Invoke(health);
-                Debug.Log("health " + health);
-            }
-            
-        }
-        
-
-
+            }        
+        }      
     }
 
     private void Movement()
