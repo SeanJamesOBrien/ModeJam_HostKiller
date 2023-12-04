@@ -5,9 +5,21 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] int damage;
+    float lifeTime = 0;
     bool isEnemy = false;
 
     public bool IsEnemy { get => isEnemy; set => isEnemy = value; }
+    public float LifeTime { get => lifeTime; set => lifeTime = value; }
+    public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+
+    private void Start()
+    {
+        Debug.Log(lifeTime);
+        if(lifeTime != 0)
+        {
+            Invoke(nameof(DestroyProjectile), lifeTime);
+        }
+    }
 
     void Update()
     {
@@ -49,5 +61,10 @@ public class Projectile : MonoBehaviour
             }
         }
         return false;
+    }
+
+    void DestroyProjectile()
+    {
+        Destroy(gameObject);
     }
 }
