@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static event Action OnLevelOver = delegate { };
     [SerializeField] SpawnChanceSO spawnSettings;
     [SerializeField] List<Enemy> enemyPrefabs = new List<Enemy>();
     List<Enemy> enemies = new List<Enemy>();
@@ -45,6 +47,10 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemies(maxEnemiesAtOnce - enemies.Count);
         }
+        if(remainingEnemies <= 0)
+        {
+            OnLevelOver?.Invoke();
+        }
     }
 
     private void SpawnEnemies(int numEnemies)
@@ -71,6 +77,7 @@ public class EnemySpawner : MonoBehaviour
         enemies.Add(newEnemy);     
     }
 
+
     private Enemy GetRandomEnemy()
     {
         return enemyPrefabs[spawnSettings.ChooseSpawnedEnemy()];
@@ -83,8 +90,8 @@ public class EnemySpawner : MonoBehaviour
         int watchDog = 0;
         while (!canSpawnHere)
         {
-            pos = new Vector3(Random.Range(-groundSize.x, groundSize.x),
-                                 Random.Range(-groundSize.y, groundSize.y));
+            pos = new Vector3(UnityEngine.Random.Range(-groundSize.x, groundSize.x),
+                              UnityEngine.Random.Range(-groundSize.y, groundSize.y));
 
             canSpawnHere = CheckOverlap(pos);
             if (canSpawnHere)
