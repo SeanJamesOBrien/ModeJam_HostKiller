@@ -4,7 +4,9 @@ public class ProjectileAttack : EnemyAttack
 {
     [SerializeField] Projectile projectile;
     Transform target;
-    [SerializeField] Transform[] projectileStarts;
+    [SerializeField] float projectileSpeed;
+    [SerializeField] float projectileLifeTime;
+    [SerializeField] Transform[] projectileStarts;   
     Vector2 direction;
     float angle;
 
@@ -20,7 +22,10 @@ public class ProjectileAttack : EnemyAttack
     protected override void Update()
     {
         base.Update();
-        LookAtTarget();
+        if (target)
+        {
+            LookAtTarget();
+        }
     }
 
     void LookAtTarget()
@@ -36,6 +41,11 @@ public class ProjectileAttack : EnemyAttack
         {
             Projectile newProjectile = Instantiate(projectile, projectileStart.position, projectileStart.rotation);
             newProjectile.IsEnemy = true;
+            newProjectile.LifeTime = projectileLifeTime;
+            if(projectileSpeed != 0)
+            {
+                newProjectile.MovementSpeed = projectileSpeed;
+            }
         }
     }
 }
