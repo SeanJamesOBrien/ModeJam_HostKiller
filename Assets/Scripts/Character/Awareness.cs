@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChargeAwareness : MonoBehaviour
+public class Awareness : MonoBehaviour
 {
     EnemyMovement enemyMovement;
 
@@ -13,7 +13,7 @@ public class ChargeAwareness : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(K.PlayerLayer))
         {
-            enemyMovement.SpeedBoost();
+            enemyMovement.IsAware = true;
         }
     }
 }

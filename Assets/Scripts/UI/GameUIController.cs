@@ -5,10 +5,8 @@ public class GameUIController : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject levelCompletePanel;
     bool isPaused = false;
-
-    [SerializeField] GameObject lastPlayerHealth;
-    [SerializeField] GameObject playerHealth;
 
     private void Start()
     {
@@ -16,14 +14,13 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = isPaused;
         PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
-        PlayerController.OnHealthChanged += PlayerController_OnHealthChanged;    
+        EnemySpawner.OnLevelOver += EnemySpawner_OnLevelOver;
     }
-
 
     private void OnDestroy()
     {
         PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed; 
-        PlayerController.OnHealthChanged -= PlayerController_OnHealthChanged;
+        EnemySpawner.OnLevelOver -= EnemySpawner_OnLevelOver;
     }
 
     void Update()
@@ -47,6 +44,11 @@ public class GameUIController : MonoBehaviour
         SceneController.Instance.LoadNextScene(K.MainMenuScene);
     }
 
+    public void Continue()
+    {
+        SceneController.Instance.LoadNextScene(K.GameScene);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -57,18 +59,15 @@ public class GameUIController : MonoBehaviour
         Cursor.visible = true;
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(true);
+        levelCompletePanel.SetActive(false);
     }
 
-    private void PlayerController_OnHealthChanged(int health)
+    private void EnemySpawner_OnLevelOver()
     {
-        //this could be done better
-        if(health == 1)
-        {
-            playerHealth.gameObject.SetActive(false);
-        }
-        else
-        {
-            lastPlayerHealth.gameObject.SetActive(false);
-        }
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        pausePanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+        levelCompletePanel.SetActive(true);
     }
 }

@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static event Action OnLevelOver = delegate { };
+    [SerializeField] SpawnChanceSO spawnSettings;
     [SerializeField] List<Enemy> enemyPrefabs = new List<Enemy>();
-    List<Enemy> enemies = new List<Enemy>();
+    Dictionary<int, Enemy> enemies = new Dictionary<int, Enemy>();
 
     [SerializeField] Transform playerPosition;
     [SerializeField] EnemyCountUI enemyUI;
@@ -17,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform ground;
     Vector2 groundSize;
     int remainingEnemies = 0;
+    int index = 0;
 
     void Start()
     {
@@ -34,15 +38,22 @@ public class EnemySpawner : MonoBehaviour
         Enemy.OnEnemyDestroyed -= Enemy_OnEnemyDestroyed;
     }
 
-    private void Enemy_OnEnemyDestroyed(Enemy enemy)
+    private void Enemy_OnEnemyDestroyed(int enemyId)
     {
-        enemies.Remove(enemy);
+        if (!enemies.ContainsKey(enemyId))
+        {
+            return;
+        }
+        enemies.Remove(enemyId);
         remainingEnemies--;
         enemyUI.UpdateText(remainingEnemies);
-
-        if (enemies.Count < minNumEnemies)
+        if (enemies.Count <= minNumEnemies)
         {
             SpawnEnemies(maxEnemiesAtOnce - enemies.Count);
+        }
+        if(remainingEnemies <= 0)
+        {
+            OnLevelOver?.Invoke();
         }
     }
 
@@ -67,12 +78,15 @@ public class EnemySpawner : MonoBehaviour
                                      Quaternion.identity,
                                      transform);
         newEnemy.Player = playerPosition;
-        enemies.Add(newEnemy);     
+        newEnemy.Id = index;
+        enemies.Add(index, newEnemy);
+        index++;
     }
+
 
     private Enemy GetRandomEnemy()
     {
-        return enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+        return enemyPrefabs[spawnSettings.ChooseSpawnedEnemy()];
     }
 
     private Vector3 GetPosition()
@@ -82,8 +96,8 @@ public class EnemySpawner : MonoBehaviour
         int watchDog = 0;
         while (!canSpawnHere)
         {
-            pos = new Vector3(Random.Range(-groundSize.x, groundSize.x),
-                                 Random.Range(-groundSize.y, groundSize.y));
+            pos = new Vector3(UnityEngine.Random.Range(-groundSize.x, groundSize.x),
+                              UnityEngine.Random.Range(-groundSize.y, groundSize.y));
 
             canSpawnHere = CheckOverlap(pos);
             if (canSpawnHere)

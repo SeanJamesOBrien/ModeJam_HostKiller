@@ -11,10 +11,8 @@ public class EnemyAttack : MonoBehaviour
     protected virtual void Update()
     {
         time += Time.deltaTime;
-        Debug.Log("wtf");
         if (time > attackSpeed)
         {
-            Debug.Log("attack");
             Attack();
             time = 0;
         }
