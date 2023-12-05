@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public static event Action OnLevelOver = delegate { };
     [SerializeField] SpawnChanceSO spawnSettings;
     [SerializeField] List<Enemy> enemyPrefabs = new List<Enemy>();
-    List<Enemy> enemies = new List<Enemy>();
+    Dictionary<int, Enemy> enemies = new Dictionary<int, Enemy>();
 
     [SerializeField] Transform playerPosition;
     [SerializeField] EnemyCountUI enemyUI;
@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform ground;
     Vector2 groundSize;
     int remainingEnemies = 0;
+    int index = 0;
 
     void Start()
     {
@@ -37,13 +38,16 @@ public class EnemySpawner : MonoBehaviour
         Enemy.OnEnemyDestroyed -= Enemy_OnEnemyDestroyed;
     }
 
-    private void Enemy_OnEnemyDestroyed(Enemy enemy)
+    private void Enemy_OnEnemyDestroyed(int enemyId)
     {
-        enemies.Remove(enemy);
+        if (!enemies.ContainsKey(enemyId))
+        {
+            return;
+        }
+        enemies.Remove(enemyId);
         remainingEnemies--;
         enemyUI.UpdateText(remainingEnemies);
-
-        if (enemies.Count < minNumEnemies)
+        if (enemies.Count <= minNumEnemies)
         {
             SpawnEnemies(maxEnemiesAtOnce - enemies.Count);
         }
@@ -74,7 +78,9 @@ public class EnemySpawner : MonoBehaviour
                                      Quaternion.identity,
                                      transform);
         newEnemy.Player = playerPosition;
-        enemies.Add(newEnemy);     
+        newEnemy.Id = index;
+        enemies.Add(index, newEnemy);
+        index++;
     }
 
 
