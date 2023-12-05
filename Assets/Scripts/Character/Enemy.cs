@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] int health;
     Transform player;
     int id;
+    Animator animator;
 
     public Transform Player { get => player; set => player = value; }
     public int Id { get => id; set => id = value; }
@@ -17,15 +18,15 @@ public class Enemy : MonoBehaviour, IDamageable
         {
             health = 2;
         }
+        animator = GetComponent<Animator>();
     }
 
     public void CalculateDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
-        {
-            OnEnemyDestroyed?.Invoke(id);
-            Destroy(gameObject);
+        {            
+            DestroyEnemy();
         }
     }
 
@@ -33,9 +34,34 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer(K.PlayerLayer))
         {
-            OnEnemyDestroyed?.Invoke(id);
             collision.gameObject.GetComponent<IDamageable>().CalculateDamage(K.EnemyDamage);
+            DestroyEnemy();
+        }
+    }
+
+    private void DestroyEnemy()
+    { 
+        OnEnemyDestroyed?.Invoke(id);
+
+        if(animator.runtimeAnimatorController)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            animator.SetTrigger("Death");
+            GetComponent<EnemyMovement>().enabled = false;
+            EnemyAttack attack = GetComponentInChildren<EnemyAttack>();
+            if(attack)
+            {
+                attack.enabled = false;
+            }
+        }
+        else
+        {
             Destroy(gameObject);
         }
+    }
+
+    void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }

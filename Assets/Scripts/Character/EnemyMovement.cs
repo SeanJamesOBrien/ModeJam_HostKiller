@@ -22,6 +22,10 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Enemy>().Player;
+        if(!player)
+        {
+            player = FindAnyObjectByType<PlayerController>().transform;
+        }
         isFollowing = !hasRandomMovement;
     }
 
