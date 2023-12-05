@@ -8,6 +8,7 @@ public class HealthUI : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
+        image.fillAmount = 1;
         PlayerController.OnHealthChanged += PlayerController_OnHealthChanged;
     }
 
