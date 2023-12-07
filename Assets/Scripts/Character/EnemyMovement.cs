@@ -31,6 +31,10 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!player)
+        {
+            return;
+        }
         if (isFollowing)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.fixedDeltaTime);

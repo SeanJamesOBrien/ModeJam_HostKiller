@@ -1,31 +1,49 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
     public static event Action OnPlayerDestroyed = delegate { };
     public static event Action<int> OnHealthChanged = delegate { };
+    
     [Header("Movement")]
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
+
     [Header("Combat")]
     //PlayerModes currentMode = PlayerModes.Cross;
     bool isMeleeMode = false;
     [SerializeField] float rangedAttackSpeed = 0.75f;
-    [SerializeField] GameObject projectile;
-    int health = K.PlayerStartingHealth;
+    [SerializeField] GameObject projectile;  
+    float attackTimer = 0;
+
     [Header("Melee")]
     [SerializeField] float meleeAttackSpeed = 1.5f;
     [SerializeField] float meleeRange = 1.5f;
     [SerializeField] int meleeDamage = 1000;
     [SerializeField] LayerMask attackMask;
-    float time = 0;
+    
+    [Header("Health")]
+    int health = K.PlayerStartingHealth;
     [SerializeField] float healthRegen = 1f;
+    [SerializeField] float invulnerabilityDuration;
     float healthRegenTimer = 0;
+    bool hasInvulnerability = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        EnemySpawner.OnLevelOver += EnemySpawner_OnLevelOver;
+    }
+
+    private void OnDestroy()
+    {
+        EnemySpawner.OnLevelOver -= EnemySpawner_OnLevelOver;
     }
 
     private void Update()
@@ -34,8 +52,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             ToggleMode();
         }
-        time += Time.deltaTime;
-        
+        attackTimer += Time.deltaTime;
         HandleMode();          
     }
 
@@ -69,25 +86,24 @@ public class PlayerController : MonoBehaviour, IDamageable
         rb.MovePosition(rb.transform.position + tempVect);
     }
 
-
     private void ToggleMode()
     {
         isMeleeMode = !isMeleeMode;
-        time = 0;
+        attackTimer = 0;
     }
 
     private void HandleMode()
     {
         if (isMeleeMode)
         {
-            if (time > meleeAttackSpeed)
+            if (attackTimer > meleeAttackSpeed)
             {
                 Melee();
             }
         }
         else
         {
-            if (time > rangedAttackSpeed)
+            if (attackTimer > rangedAttackSpeed)
             {
                 CrossFire();
             }          
@@ -96,7 +112,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Melee()
     {
-        //Debug.Log("melee attack");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
         if (colliders.Length > 0)
         {
@@ -106,7 +121,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 damageable.CalculateDamage(meleeDamage);
             }          
         }
-        time = 0;
+        attackTimer = 0;
     }
 
     private void CrossFire()
@@ -117,18 +132,41 @@ public class PlayerController : MonoBehaviour, IDamageable
             newProjectile.transform.position = transform.position;
             newProjectile.transform.eulerAngles = new Vector3(0, 0, i);
         }
-        time = 0;
+        attackTimer = 0;
     }
 
     public void CalculateDamage(int damage)
     {
+        if(hasInvulnerability)
+        {
+            return;
+        }
+
         health -= damage;
         OnHealthChanged?.Invoke(health);
         if (health <= 0)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             OnPlayerDestroyed?.Invoke();
             Destroy(gameObject);
         }
+        StartCoroutine(TemporaryInvulnerablity());
+    }
+
+    public IEnumerator TemporaryInvulnerablity()
+    {
+        hasInvulnerability = true;
+        float time = 0;
+        while (time < invulnerabilityDuration)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        hasInvulnerability = false;
+    }
+
+    private void EnemySpawner_OnLevelOver()
+    {
+        this.enabled = false;
     }
 }

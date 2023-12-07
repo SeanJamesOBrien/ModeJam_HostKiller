@@ -65,7 +65,6 @@ public class GameUIController : MonoBehaviour
     private void EnemySpawner_OnLevelOver()
     {
         Cursor.visible = true;
-        Time.timeScale = 0;
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         levelCompletePanel.SetActive(true);

@@ -145,3 +145,5 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 128
+  healthRegen: 3
+  invulnerabilityDuration: 0.5
