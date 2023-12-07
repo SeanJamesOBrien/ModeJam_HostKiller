@@ -1,8 +1,10 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class GameUIController : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject levelCompletePanel;
@@ -10,6 +12,7 @@ public class GameUIController : MonoBehaviour
 
     private void Start()
     {
+        levelText.text = "Level: " + (ProgressionController.Instance.Level + 1);
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = isPaused;
@@ -46,7 +49,7 @@ public class GameUIController : MonoBehaviour
 
     public void Continue()
     {
-        SceneController.Instance.LoadNextScene(K.GameScene);
+        ProgressionController.Instance.StartNextLevel();
     }
 
     public void QuitGame()

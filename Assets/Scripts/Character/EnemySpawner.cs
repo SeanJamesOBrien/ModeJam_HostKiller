@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public static event Action OnLevelOver = delegate { };
-    [SerializeField] SpawnChanceSO spawnSettings;
+    [SerializeField] SpawnChanceSO[] spawnSettings;
     [SerializeField] List<Enemy> enemyPrefabs = new List<Enemy>();
     Dictionary<int, Enemy> enemies = new Dictionary<int, Enemy>();
 
@@ -86,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Enemy GetRandomEnemy()
     {
-        return enemyPrefabs[spawnSettings.ChooseSpawnedEnemy()];
+        return enemyPrefabs[spawnSettings[ProgressionController.Instance.Level].ChooseSpawnedEnemy()];
     }
 
     private Vector3 GetPosition()

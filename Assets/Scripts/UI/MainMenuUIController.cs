@@ -7,7 +7,7 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] GameObject creditPanel;
     public void StartGame()
     {
-        SceneController.Instance.LoadNextScene(K.GameScene);
+        SceneController.Instance.LoadNextScene(K.GameScene + 1);
         creditPanel.SetActive(false);
     }
 

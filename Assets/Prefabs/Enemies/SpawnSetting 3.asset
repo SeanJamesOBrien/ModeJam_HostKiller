@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1329b83c5d7cda44a81780ae5c75ffd1, type: 3}
-  m_Name: SpawnSetting
+  m_Name: SpawnSetting 3
   m_EditorClassIdentifier: 
-  spawnChances: 28000000140000001e0000000a00000000000000
+  spawnChances: 050000001e0000001e000000140000000f000000
