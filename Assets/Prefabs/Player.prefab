@@ -146,4 +146,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   healthRegen: 3
-  invulnerabilityDuration: 0.5
+  invulnerabilityDuration: 1.5
+  invulnerabilityFlickers: 10
+  normalColour: {r: 1, g: 1, b: 1, a: 1}
+  invulnerabilityColour: {r: 1, g: 1, b: 1, a: 0}

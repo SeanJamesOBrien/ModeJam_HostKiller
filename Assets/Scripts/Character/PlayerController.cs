@@ -28,12 +28,21 @@ public class PlayerController : MonoBehaviour, IDamageable
     int health = K.PlayerStartingHealth;
     [SerializeField] float healthRegen = 1f;
     [SerializeField] float invulnerabilityDuration;
+    [SerializeField] int invulnerabilityFlickers;
+    float invulnerabilityFlickerDuration;
+    int flickerBuffer;
     float healthRegenTimer = 0;
     bool hasInvulnerability = false;
+    SpriteRenderer spriteRenderer;
+    [SerializeField] Color normalColour;
+    [SerializeField] Color invulnerabilityColour;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = normalColour;
+        invulnerabilityFlickerDuration = invulnerabilityDuration / invulnerabilityFlickers;
     }
 
     private void Start()
@@ -150,7 +159,36 @@ public class PlayerController : MonoBehaviour, IDamageable
             OnPlayerDestroyed?.Invoke();
             Destroy(gameObject);
         }
+        flickerBuffer = 0;
         StartCoroutine(TemporaryInvulnerablity());
+        StartCoroutine(InvulnerablityFlicker());
+    }
+
+    private IEnumerator InvulnerablityFlicker()
+    {
+        flickerBuffer++;
+        float time = 0;
+        if(spriteRenderer.color == normalColour)
+        {
+            spriteRenderer.color = invulnerabilityColour;
+        }
+        else
+        {
+            spriteRenderer.color = normalColour;
+        }
+        while (time < invulnerabilityFlickerDuration)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        if (flickerBuffer < invulnerabilityFlickers)
+        {
+            StartCoroutine(InvulnerablityFlicker());
+        }
+        else
+        {
+            spriteRenderer.color = normalColour;
+        }
     }
 
     public IEnumerator TemporaryInvulnerablity()
