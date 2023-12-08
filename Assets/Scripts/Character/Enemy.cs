@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDamageable
 {
     public static event Action<int> OnEnemyDestroyed = delegate { };
-    [SerializeField] int health;
+    [SerializeField] protected int health;
     Transform player;
     int id;
     Animator animator;
@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
     }
 
-    public void CalculateDamage(int damage)
+    public virtual void CalculateDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
