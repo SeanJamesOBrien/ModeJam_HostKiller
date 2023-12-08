@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI victoryText;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject levelCompletePanel;
@@ -75,10 +76,11 @@ public class GameUIController : MonoBehaviour
     }
 
     private void EnemySpawner_OnLevelOver()
-    {
+    {        
         Cursor.visible = true;
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         levelCompletePanel.SetActive(true);
+        victoryText.text = "Wave " + ProgressionController.Instance.Level + " complete";
     }
 }

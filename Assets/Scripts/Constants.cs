@@ -18,4 +18,6 @@ public static class K
     public static int PlayerStartingHealth = 3;
 
     public static int NumberOfLevels = 5;
+
+    public static float GameOverDelay = 1.25f;
 }

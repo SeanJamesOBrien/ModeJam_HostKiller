@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static event Action OnEnemiesDefeated = delegate { };
     public static event Action OnLevelOver = delegate { };
     [SerializeField] SpawnChanceSO[] spawnSettings;
     [SerializeField] List<Enemy> enemyPrefabs = new List<Enemy>();
@@ -53,7 +55,8 @@ public class EnemySpawner : MonoBehaviour
         }
         if(remainingEnemies <= 0)
         {
-            OnLevelOver?.Invoke();
+            OnEnemiesDefeated?.Invoke();
+            StartCoroutine(GameOverDelay());   
         }
     }
 
@@ -123,5 +126,16 @@ public class EnemySpawner : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public IEnumerator GameOverDelay()
+    {
+        float time = 0;
+        while (time < K.GameOverDelay)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        OnLevelOver?.Invoke();
     }
 }

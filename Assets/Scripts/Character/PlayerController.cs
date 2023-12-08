@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        EnemySpawner.OnLevelOver += EnemySpawner_OnLevelOver;
+        EnemySpawner.OnEnemiesDefeated += EnemySpawner_OnEnemiesDefeated;
     }
 
     private void OnDestroy()
     {
-        EnemySpawner.OnLevelOver -= EnemySpawner_OnLevelOver;
+        EnemySpawner.OnEnemiesDefeated -= EnemySpawner_OnEnemiesDefeated;
     }
 
     private void Update()
@@ -203,8 +203,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         hasInvulnerability = false;
     }
 
-    private void EnemySpawner_OnLevelOver()
+    private void EnemySpawner_OnEnemiesDefeated()
     {
-        this.enabled = false;
+        hasInvulnerability = true;
     }
 }
