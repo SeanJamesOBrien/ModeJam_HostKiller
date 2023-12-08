@@ -12,7 +12,16 @@ public class GameUIController : MonoBehaviour
 
     private void Start()
     {
-        levelText.text = "Level: " + (ProgressionController.Instance.Level + 1);
+        int level = ProgressionController.Instance.Level + 1;
+        if (level < 6)
+        {
+            levelText.text = "Level: " + level;
+        }
+        else
+        {
+            levelText.text = "Boss Level";
+        }
+        
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = isPaused;
