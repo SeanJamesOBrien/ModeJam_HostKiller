@@ -1,8 +1,11 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class GameUIController : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI victoryText;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject levelCompletePanel;
@@ -10,6 +13,16 @@ public class GameUIController : MonoBehaviour
 
     private void Start()
     {
+        int level = ProgressionController.Instance.Level + 1;
+        if (level < 6)
+        {
+            levelText.text = "Level: " + level;
+        }
+        else
+        {
+            levelText.text = "Boss Level";
+        }
+        
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = isPaused;
@@ -46,7 +59,7 @@ public class GameUIController : MonoBehaviour
 
     public void Continue()
     {
-        SceneController.Instance.LoadNextScene(K.GameScene);
+        ProgressionController.Instance.StartNextLevel();
     }
 
     public void QuitGame()
@@ -63,11 +76,11 @@ public class GameUIController : MonoBehaviour
     }
 
     private void EnemySpawner_OnLevelOver()
-    {
+    {        
         Cursor.visible = true;
-        Time.timeScale = 0;
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         levelCompletePanel.SetActive(true);
+        victoryText.text = "Wave " + ProgressionController.Instance.Level + " complete";
     }
 }

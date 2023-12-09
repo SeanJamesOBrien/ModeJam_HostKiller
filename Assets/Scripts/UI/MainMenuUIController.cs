@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class MainMenuUIController : MonoBehaviour
 {
+    [SerializeField] GameObject creditPanel;
+
+    private void Start()
+    {
+        ProgressionController.Instance.Level = 0;
+    }
+
     public void StartGame()
     {
-        SceneController.Instance.LoadNextScene(K.GameScene);
+        ProgressionController.Instance.StartNextLevel();
+        creditPanel.SetActive(false);
+    }
+
+    public void ToggleCredits()
+    {
+        creditPanel.SetActive(!creditPanel.activeSelf);
     }
 
     public void QuitGame()

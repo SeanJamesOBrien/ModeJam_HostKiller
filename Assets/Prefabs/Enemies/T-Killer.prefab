@@ -142,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   projectile: {fileID: 747072665796547547, guid: 31a33fa3ff239634f8c936a1850a428c, type: 3}
+  projectileSpeed: 0
+  projectileLifeTime: 0
   projectileStarts:
   - {fileID: 6050541061484073778}
   - {fileID: 4648216617326492696}
@@ -237,6 +239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: T-Killer
       objectReference: {fileID: 0}
+    - target: {fileID: 2162432810543595664, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 83e72e0af2c0d964a80de08e04203f12, type: 2}
     m_RemovedComponents:
     - {fileID: -8880718882963469377, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}

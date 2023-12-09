@@ -12,7 +12,7 @@ public class ProjectileAttack : EnemyAttack
 
     private void Start()
     {
-        target = GetComponentInParent<Enemy>().Player;
+        //Enemy target = GetComponentInParent<Enemy>();
         if(target == null)
         {
             target = FindAnyObjectByType<PlayerController>().GetComponent<Transform>();

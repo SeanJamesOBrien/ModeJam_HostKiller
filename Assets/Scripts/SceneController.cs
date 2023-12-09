@@ -31,6 +31,7 @@ public class SceneController : MonoBehaviour
 
     IEnumerator StartLoad(string sceneName)
     {
+        //Debug.Log(sceneName);
         yield return StartCoroutine(ui.LerpFade(true));
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);

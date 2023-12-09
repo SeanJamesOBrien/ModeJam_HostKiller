@@ -21,12 +21,20 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        player = GetComponent<Enemy>().Player;
+        //player = GetComponent<Enemy>().Player;
+        if(!player)
+        {
+            player = FindAnyObjectByType<PlayerController>().transform;
+        }
         isFollowing = !hasRandomMovement;
     }
 
     void FixedUpdate()
     {
+        if(!player)
+        {
+            return;
+        }
         if (isFollowing)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.fixedDeltaTime);
