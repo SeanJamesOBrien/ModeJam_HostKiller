@@ -3,6 +3,7 @@ public static class K
     public static string PlayerLayer = "Player";
     public static string EnemyLayer = "Enemy";
     public static string DefaultLayer = "Default";
+    public static string WallLayer = "Wall";
 
     public static string Horizontal = "Horizontal";
     public static string VerticalInput = "Vertical";
@@ -19,5 +20,5 @@ public static class K
 
     public static int NumberOfLevels = 5;
 
-    public static float GameOverDelay = 1.25f;
+    public static float GameOverDelay = 1.25f;  
 }

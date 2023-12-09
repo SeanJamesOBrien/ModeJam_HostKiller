@@ -686,6 +686,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  shootingDurationMin: 5
+  shootingDurationMax: 10
+  chargeNumberMin: 3
+  chargeNumberMax: 5
+  chargeSpeed: 2
+  chargeDuration: 3
+  restDuration: 0.25
 --- !u!1 &1241674705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1330,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1688656288, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.000061
+      objectReference: {fileID: 0}
     - target: {fileID: 2067901509979689666, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1537,6 +1548,10 @@ PrefabInstance:
       propertyPath: projectileStarts.Array.data[4]
       value: 
       objectReference: {fileID: 1280279314}
+    - target: {fileID: 8083213003460132554, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6034306753893958873, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
