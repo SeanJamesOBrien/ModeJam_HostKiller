@@ -6,10 +6,14 @@ public class PlayerController : MonoBehaviour, IDamageable
 {
     public static event Action OnPlayerDestroyed = delegate { };
     public static event Action<int> OnHealthChanged = delegate { };
-    
+    Animator animator;
+
     [Header("Movement")]
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
+    [SerializeField] Transform spritePosition;
+    Vector3 faceRight = new Vector3(1.25f, 0, 0);
+    Vector3 faceLeft = new Vector3(-1.25f, 0, 0);
 
     [Header("Combat")]
     //PlayerModes currentMode = PlayerModes.Cross;
@@ -23,7 +27,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] float meleeRange = 1.5f;
     [SerializeField] int meleeDamage = 1000;
     [SerializeField] LayerMask attackMask;
-    
+
     [Header("Health")]
     int health = K.PlayerStartingHealth;
     [SerializeField] float healthRegen = 1f;
@@ -39,8 +43,9 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.color = normalColour;
         invulnerabilityFlickerDuration = invulnerabilityDuration / invulnerabilityFlickers;
     }
@@ -72,17 +77,17 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
     private void HealthRegen()
-    {      
+    {
         if (health < K.PlayerStartingHealth)
         {
             healthRegenTimer += Time.fixedDeltaTime;
-            if(healthRegenTimer > healthRegen) 
+            if (healthRegenTimer > healthRegen)
             {
                 health++;
                 healthRegenTimer = 0;
                 OnHealthChanged?.Invoke(health);
-            }        
-        }      
+            }
+        }
     }
 
     private void Movement()
@@ -93,6 +98,26 @@ public class PlayerController : MonoBehaviour, IDamageable
         Vector3 tempVect = new Vector3(xInput, zInput, 0);
         tempVect = tempVect.normalized * moveSpeed * Time.deltaTime;
         rb.MovePosition(rb.transform.position + tempVect);
+
+        if (xInput > 0)
+        {
+            spritePosition.localPosition = faceRight;        
+            spriteRenderer.flipX = false;
+        }
+        else if (xInput < 0)
+        {
+            spritePosition.localPosition = faceLeft;
+            spriteRenderer.flipX = true;
+        }
+
+        if (tempVect.magnitude > 0)
+        {         
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {      
+            animator.SetBool("IsWalking", false);
+        }
     }
 
     private void ToggleMode()
@@ -121,15 +146,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Melee()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
-        if (colliders.Length > 0)
-        {
-            IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
-            if(damageable != null)
-            {
-                damageable.CalculateDamage(meleeDamage);
-            }          
-        }
+        animator.SetTrigger("Attack");      
         attackTimer = 0;
     }
 
@@ -156,8 +173,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             //Time.timeScale = 0;
-            OnPlayerDestroyed?.Invoke();
-            Destroy(gameObject);
+            animator.SetTrigger("Death");
+            moveSpeed = 0;
         }
         flickerBuffer = 0;
         StartCoroutine(TemporaryInvulnerablity());
@@ -206,5 +223,25 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void EnemySpawner_OnEnemiesDefeated()
     {
         hasInvulnerability = true;
+    }
+
+    void OnAttack()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
+        if (colliders.Length > 0)
+        {
+
+            IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.CalculateDamage(meleeDamage);
+            }
+        }
+    }
+
+    void OnDeath()
+    {
+        OnPlayerDestroyed?.Invoke();
+        Destroy(gameObject);
     }
 }
