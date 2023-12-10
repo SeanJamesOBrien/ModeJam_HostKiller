@@ -33,11 +33,13 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemies(maxEnemiesAtOnce);
 
         Enemy.OnEnemyDestroyed += Enemy_OnEnemyDestroyed;
+        PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
     }
 
     private void OnDestroy()
     {
-        Enemy.OnEnemyDestroyed -= Enemy_OnEnemyDestroyed;
+        Enemy.OnEnemyDestroyed -= Enemy_OnEnemyDestroyed; 
+        PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed;
     }
 
     private void Enemy_OnEnemyDestroyed(int enemyId)
@@ -138,4 +140,10 @@ public class EnemySpawner : MonoBehaviour
         }
         OnLevelOver?.Invoke();
     }
+
+    private void PlayerController_OnPlayerDestroyed()
+    {
+        remainingEnemies = -1;
+    }
+
 }

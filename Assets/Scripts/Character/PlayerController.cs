@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, IDamageable
 {
     public static event Action OnPlayerDestroyed = delegate { };
+    public static event Action OnPlayerDestroyedComplete = delegate { };
     public static event Action<int> OnHealthChanged = delegate { };
     Animator animator;
 
@@ -62,23 +63,30 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ToggleMode();
-        }
-        attackTimer += Time.deltaTime;
-        HandleMode();          
+        if (health > 0)
+        { 
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ToggleMode();
+            }
+            attackTimer += Time.deltaTime;
+            HandleMode();
+        }   
     }
 
     void FixedUpdate()
     {
-        Movement();
-        HealthRegen();
+        if (health > 0)
+        {
+            Movement();
+            HealthRegen();
+        }
     }
 
     private void HealthRegen()
     {
-        if (health < K.PlayerStartingHealth)
+        if (health < K.PlayerStartingHealth &&
+            health > 0)
         {
             healthRegenTimer += Time.fixedDeltaTime;
             if (healthRegenTimer > healthRegen)
@@ -172,13 +180,17 @@ public class PlayerController : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke(health);
         if (health <= 0)
         {
+            OnPlayerDestroyed?.Invoke();
             //Time.timeScale = 0;
             animator.SetTrigger("Death");
             moveSpeed = 0;
         }
-        flickerBuffer = 0;
-        StartCoroutine(TemporaryInvulnerablity());
-        StartCoroutine(InvulnerablityFlicker());
+        if (health > 0)
+        {
+            flickerBuffer = 0;
+            StartCoroutine(TemporaryInvulnerablity());
+            StartCoroutine(InvulnerablityFlicker());
+        }
     }
 
     private IEnumerator InvulnerablityFlicker()
@@ -241,7 +253,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void OnDeath()
     {
-        OnPlayerDestroyed?.Invoke();
+        OnPlayerDestroyedComplete?.Invoke();
         Destroy(gameObject);
     }
 }

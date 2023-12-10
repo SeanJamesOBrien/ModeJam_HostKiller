@@ -27,6 +27,17 @@ public class EnemyMovement : MonoBehaviour
             player = FindAnyObjectByType<PlayerController>().transform;
         }
         isFollowing = !hasRandomMovement;
+        PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed;
+    }
+
+    private void PlayerController_OnPlayerDestroyed()
+    {
+        player = null;
     }
 
     void FixedUpdate()
