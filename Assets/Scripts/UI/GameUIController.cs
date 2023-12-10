@@ -26,13 +26,13 @@ public class GameUIController : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = isPaused;
-        PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
+        PlayerController.OnPlayerDestroyedComplete += PlayerController_OnPlayerDestroyedComplete;
         EnemySpawner.OnLevelOver += EnemySpawner_OnLevelOver;
     }
 
     private void OnDestroy()
     {
-        PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed; 
+        PlayerController.OnPlayerDestroyedComplete -= PlayerController_OnPlayerDestroyedComplete; 
         EnemySpawner.OnLevelOver -= EnemySpawner_OnLevelOver;
     }
 
@@ -67,7 +67,7 @@ public class GameUIController : MonoBehaviour
         Application.Quit();
     }
 
-    private void PlayerController_OnPlayerDestroyed()
+    private void PlayerController_OnPlayerDestroyedComplete()
     {
         Cursor.visible = true;
         pausePanel.SetActive(false);

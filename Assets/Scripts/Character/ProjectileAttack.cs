@@ -17,7 +17,19 @@ public class ProjectileAttack : EnemyAttack
         {
             target = FindAnyObjectByType<PlayerController>().GetComponent<Transform>();
         }
+        PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
     }
+
+    private void OnDestroy()
+    {
+        PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed;
+    }
+
+    private void PlayerController_OnPlayerDestroyed()
+    {
+        target = null;
+    }
+
 
     protected override void Update()
     {
@@ -37,6 +49,10 @@ public class ProjectileAttack : EnemyAttack
 
     protected override void Attack()
     {
+        if(!target)
+        {
+            return;
+        }
         foreach (Transform projectileStart in projectileStarts)
         {
             Projectile newProjectile = Instantiate(projectile, projectileStart.position, projectileStart.rotation);

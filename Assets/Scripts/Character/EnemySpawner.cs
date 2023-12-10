@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     Vector2 groundSize;
     int remainingEnemies = 0;
     int index = 0;
+    bool isPlayerAlive = true;
 
     void Start()
     {
@@ -33,11 +34,13 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemies(maxEnemiesAtOnce);
 
         Enemy.OnEnemyDestroyed += Enemy_OnEnemyDestroyed;
+        PlayerController.OnPlayerDestroyed += PlayerController_OnPlayerDestroyed;
     }
 
     private void OnDestroy()
     {
-        Enemy.OnEnemyDestroyed -= Enemy_OnEnemyDestroyed;
+        Enemy.OnEnemyDestroyed -= Enemy_OnEnemyDestroyed; 
+        PlayerController.OnPlayerDestroyed -= PlayerController_OnPlayerDestroyed;
     }
 
     private void Enemy_OnEnemyDestroyed(int enemyId)
@@ -62,6 +65,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemies(int numEnemies)
     {
+        if(!isPlayerAlive)
+        {
+            return;
+        }
         for (int i = 0; i < numEnemies; i++)
         {
             SpawnEnemy();
@@ -137,5 +144,10 @@ public class EnemySpawner : MonoBehaviour
             yield return null;
         }
         OnLevelOver?.Invoke();
+    }
+
+    private void PlayerController_OnPlayerDestroyed()
+    {
+        isPlayerAlive = false;
     }
 }
