@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     Vector2 groundSize;
     int remainingEnemies = 0;
     int index = 0;
+    bool isPlayerAlive = true;
 
     void Start()
     {
@@ -64,6 +65,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemies(int numEnemies)
     {
+        if(!isPlayerAlive)
+        {
+            return;
+        }
         for (int i = 0; i < numEnemies; i++)
         {
             SpawnEnemy();
@@ -143,7 +148,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void PlayerController_OnPlayerDestroyed()
     {
-        remainingEnemies = -1;
+        isPlayerAlive = false;
     }
-
 }
