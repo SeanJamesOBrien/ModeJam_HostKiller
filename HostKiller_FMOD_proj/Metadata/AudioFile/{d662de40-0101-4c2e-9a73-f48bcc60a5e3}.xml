@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{36fec19e-b5d6-44df-82af-d84bdad76118}">
+	<object class="AudioFile" id="{d662de40-0101-4c2e-9a73-f48bcc60a5e3}">
 		<property name="assetPath">
-			<value>playerFoley/playerWalking/playerStep02.wav</value>
+			<value>playerFoley/playerDeath/playerDeath04.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.26385416666666667</value>
+			<value>0.57729166666666665</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{09f80cdb-0879-48cc-97fa-6d6aff77ae4e}</destination>
