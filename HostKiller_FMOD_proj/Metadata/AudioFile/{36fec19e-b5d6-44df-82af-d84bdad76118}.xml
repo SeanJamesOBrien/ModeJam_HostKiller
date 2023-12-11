@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{47b6f58d-c0a5-47e1-8615-a639217ab6a1}">
+	<object class="AudioFile" id="{36fec19e-b5d6-44df-82af-d84bdad76118}">
 		<property name="assetPath">
-			<value>Impulse Responses/Dam 01 0m Stereo.wav</value>
+			<value>playerFoley/playerStep02.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>5.8417291666666671</value>
+			<value>0.26385416666666667</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{09f80cdb-0879-48cc-97fa-6d6aff77ae4e}</destination>
