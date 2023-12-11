@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -22,12 +23,15 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] float rangedAttackSpeed = 0.75f;
     [SerializeField] GameObject projectile;  
     float attackTimer = 0;
+    [SerializeField] EventReference rangedAttackSound;
 
     [Header("Melee")]
     [SerializeField] float meleeAttackSpeed = 1.5f;
     [SerializeField] float meleeRange = 1.5f;
     [SerializeField] int meleeDamage = 1000;
     [SerializeField] LayerMask attackMask;
+    [SerializeField] EventReference meleeAttackHitSound;
+    [SerializeField] EventReference meleeAttackMissSound;
 
     [Header("Health")]
     int health = K.PlayerStartingHealth;
@@ -160,6 +164,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void CrossFire()
     {
+        AudioController.Instance.PlayOneShot(rangedAttackSound, transform.position);
         for (int i = 45; i < 360; i+=90)
         {
             GameObject newProjectile = Instantiate(projectile);
@@ -242,12 +247,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
         if (colliders.Length > 0)
         {
-
+            AudioController.Instance.PlayOneShot(meleeAttackHitSound, transform.position);
             IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.CalculateDamage(meleeDamage);
             }
+        }
+        else
+        {
+            AudioController.Instance.PlayOneShot(meleeAttackMissSound, transform.position);
         }
     }
 
