@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public static event Action<bool> OnGodModeChanged = delegate { };
     Animator animator;
     bool isGodMode = false;
+    bool isGameOver = false;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed;
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (health > 0)
+        if (health > 0 && !isGameOver)
         { 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -254,6 +255,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void EnemySpawner_OnEnemiesDefeated()
     {
         hasInvulnerability = true;
+        isGameOver = true;
     }
 
     void OnAttack()
