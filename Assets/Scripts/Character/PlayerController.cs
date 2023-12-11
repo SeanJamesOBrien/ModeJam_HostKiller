@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     public static event Action OnPlayerDestroyed = delegate { };
     public static event Action OnPlayerDestroyedComplete = delegate { };
     public static event Action<int> OnHealthChanged = delegate { };
+    public static event Action<bool> OnGodModeChanged = delegate { };
     Animator animator;
+    bool isGodMode = false;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed;
@@ -77,7 +79,12 @@ public class PlayerController : MonoBehaviour, IDamageable
             rangedAttackTimer += Time.deltaTime;
             meleeAttackTimer += Time.deltaTime;
             HandleMode();
-        }   
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            isGodMode = !isGodMode;
+            
+        }
     }
 
     void FixedUpdate()
@@ -172,13 +179,18 @@ public class PlayerController : MonoBehaviour, IDamageable
             GameObject newProjectile = Instantiate(projectile);
             newProjectile.transform.position = transform.position;
             newProjectile.transform.eulerAngles = new Vector3(0, 0, i);
+            if(isGodMode)
+            {
+                newProjectile.GetComponent<Projectile>().Damage = 1000;
+            }
         }
         rangedAttackTimer = 0;
     }
 
     public void CalculateDamage(int damage)
     {
-        if(hasInvulnerability)
+        if(hasInvulnerability ||
+           isGodMode)
         {
             return;
         }
