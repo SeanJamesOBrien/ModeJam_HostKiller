@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     bool isMeleeMode = false;
     [SerializeField] float rangedAttackSpeed = 0.75f;
     [SerializeField] GameObject projectile;  
-    float attackTimer = 0;
+    float rangedAttackTimer = 0;
     [SerializeField] EventReference rangedAttackSound;
 
     [Header("Melee")]
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] LayerMask attackMask;
     [SerializeField] EventReference meleeAttackHitSound;
     [SerializeField] EventReference meleeAttackMissSound;
+    float meleeAttackTimer = 0;
 
     [Header("Health")]
     int health = K.PlayerStartingHealth;
@@ -73,7 +74,8 @@ public class PlayerController : MonoBehaviour, IDamageable
             {
                 ToggleMode();
             }
-            attackTimer += Time.deltaTime;
+            rangedAttackTimer += Time.deltaTime;
+            meleeAttackTimer += Time.deltaTime;
             HandleMode();
         }   
     }
@@ -135,21 +137,21 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void ToggleMode()
     {
         isMeleeMode = !isMeleeMode;
-        attackTimer = 0;
+        rangedAttackTimer = 0;
     }
 
     private void HandleMode()
     {
         if (isMeleeMode)
         {
-            if (attackTimer > meleeAttackSpeed)
+            if (meleeAttackTimer > meleeAttackSpeed)
             {
                 Melee();
             }
         }
         else
         {
-            if (attackTimer > rangedAttackSpeed)
+            if (rangedAttackTimer > rangedAttackSpeed)
             {
                 CrossFire();
             }          
@@ -159,7 +161,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Melee()
     {
         animator.SetTrigger("Attack");      
-        attackTimer = 0;
+        meleeAttackTimer = 0;
     }
 
     private void CrossFire()
@@ -171,7 +173,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             newProjectile.transform.position = transform.position;
             newProjectile.transform.eulerAngles = new Vector3(0, 0, i);
         }
-        attackTimer = 0;
+        rangedAttackTimer = 0;
     }
 
     public void CalculateDamage(int damage)
