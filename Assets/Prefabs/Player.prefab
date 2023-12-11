@@ -27,6 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8027099801073454442}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5033408, y: 1.9691765, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
@@ -34,7 +35,6 @@ Transform:
   m_Children:
   - {fileID: 9058550408714884058}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &6930088011949678530
 CapsuleCollider2D:
@@ -46,6 +46,25 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -69,6 +88,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -89,12 +114,33 @@ MonoBehaviour:
   spritePosition: {fileID: 9058550408714884058}
   rangedAttackSpeed: 0.75
   projectile: {fileID: 747072665796547536, guid: 753ce19e1540840419ace8d603200465, type: 3}
+  rangedAttackSound:
+    Guid:
+      Data1: -1832418779
+      Data2: 1156140304
+      Data3: 178377346
+      Data4: 1352665684
+    Path: event:/playerShot
   meleeAttackSpeed: 1.5
   meleeRange: 2.5
   meleeDamage: 4
   attackMask:
     serializedVersion: 2
     m_Bits: 128
+  meleeAttackHitSound:
+    Guid:
+      Data1: -1618590634
+      Data2: 1215357141
+      Data3: -1197210211
+      Data4: -1579189246
+    Path: event:/playerMeleeHit
+  meleeAttackMissSound:
+    Guid:
+      Data1: 1557151141
+      Data2: 1188560598
+      Data3: -772393594
+      Data4: -1645165659
+    Path: event:/playerMeleeMiss
   healthRegen: 4
   invulnerabilityDuration: 0.25
   invulnerabilityFlickers: 10
@@ -145,13 +191,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8498180433256535260}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8027099801073454454}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1961720996214664386
 SpriteRenderer:
