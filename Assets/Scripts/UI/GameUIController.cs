@@ -1,14 +1,20 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class GameUIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] TextMeshProUGUI victoryText;
+    [SerializeField] TextMeshProUGUI victoryText;  
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject levelCompletePanel;
+    
+    [Header("Countdown")]
+    [SerializeField] GameObject countdownPanel;
+    [SerializeField] TextMeshProUGUI countdownText;
+    [SerializeField] float countdownDuration;
     bool isPaused = false;
 
     private void Start()
@@ -24,10 +30,10 @@ public class GameUIController : MonoBehaviour
         }
         
         isPaused = false;
-        Time.timeScale = 1;
         Cursor.visible = isPaused;
         PlayerController.OnPlayerDestroyedComplete += PlayerController_OnPlayerDestroyedComplete;
         EnemySpawner.OnLevelOver += EnemySpawner_OnLevelOver;
+        StartCoroutine(Countdown());   
     }
 
     private void OnDestroy()
@@ -82,5 +88,20 @@ public class GameUIController : MonoBehaviour
         gameOverPanel.SetActive(false);
         levelCompletePanel.SetActive(true);
         victoryText.text = "Wave " + ProgressionController.Instance.Level + " complete";
+    }
+
+    IEnumerator Countdown()
+    {
+        Time.timeScale = 0;
+        countdownPanel.SetActive(true);
+        float time = countdownDuration;
+        while (time >= 0)
+        {
+            countdownText.text = time.ToString("#");
+            time -= Time.unscaledDeltaTime;        
+            yield return null;
+        }
+        countdownPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
