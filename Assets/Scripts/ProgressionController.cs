@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProgressionController : MonoBehaviour
@@ -42,7 +39,6 @@ public class ProgressionController : MonoBehaviour
         else
         {
             SceneController.Instance.LoadNextScene(K.BossScene);
-        }
-        
+        }    
     }
 }
