@@ -264,10 +264,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (colliders.Length > 0)
         {
             AudioController.Instance.PlayOneShot(meleeAttackHitSound, transform.position);
-            IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
-            if (damageable != null)
+            //IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
+            //if (damageable != null)
+            //{
+            //    damageable.CalculateDamage(meleeDamage);
+            //}
+            foreach (Collider2D collider in colliders)
             {
-                damageable.CalculateDamage(meleeDamage);
+                collider.GetComponent<IDamageable>().CalculateDamage(meleeDamage);
             }
         }
         else
