@@ -237,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c7c69dd15deefe747b9336c6dcf6eab4, type: 3}
+      objectReference: {fileID: 21300000, guid: 84fdbac3b24dc7841bfd2f55349efee7, type: 3}
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -360,8 +360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e321277f7440fe4ebc0a31772140121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstHealth: 20
-  secondHealth: 40
+  firstHealth: 40
+  secondHealth: 80
   shootingDurationMin: 5
   shootingDurationMax: 10
   chargeNumberMin: 3
