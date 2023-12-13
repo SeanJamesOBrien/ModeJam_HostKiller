@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{8db674cb-ab99-4105-9dd4-0c19f3e64512}">
 		<property name="assetPath">
-			<value>enemySFX/enemySpawn02.wav</value>
+			<value>enemySFX/enemySpawn/enemySpawn02.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

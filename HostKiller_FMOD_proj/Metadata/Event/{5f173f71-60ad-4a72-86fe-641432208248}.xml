@@ -98,6 +98,7 @@
 	<object class="MixerBusPanner" id="{9422276f-bf0d-42e0-b6fc-8906d23054b9}" />
 	<object class="MixerBusEffectChain" id="{7e021276-4a18-4f6c-bfd0-f4c197e253fd}">
 		<relationship name="effects">
+			<destination>{173991de-28a6-4666-8b5e-6f02d83e028d}</destination>
 			<destination>{04a7e8c4-6eed-456b-a61d-e6c6b576accf}</destination>
 			<destination>{dd3c484c-dd56-46c3-b561-c16c17dd1030}</destination>
 			<destination>{522c2f53-c0d4-4a64-ac31-885c87c20ff1}</destination>
@@ -116,6 +117,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{ee660d40-0ce0-49fd-b6f1-9f5dca34fa8c}" />
+	<object class="ThreeEQEffect" id="{173991de-28a6-4666-8b5e-6f02d83e028d}">
+		<property name="highGain">
+			<value>-12.5</value>
+		</property>
+		<property name="highCrossover">
+			<value>4600</value>
+		</property>
+		<property name="crossoverSlope">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{04a7e8c4-6eed-456b-a61d-e6c6b576accf}" />
 	<object class="TremoloEffect" id="{dd3c484c-dd56-46c3-b561-c16c17dd1030}">
 		<property name="frequency">
@@ -127,7 +139,7 @@
 	</object>
 	<object class="MixerSend" id="{522c2f53-c0d4-4a64-ac31-885c87c20ff1}">
 		<property name="level">
-			<value>-29</value>
+			<value>-35</value>
 		</property>
 		<property name="inputFormat">
 			<value>1</value>
