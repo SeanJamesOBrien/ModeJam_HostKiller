@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8856717093981830802
+--- !u!114 &-7339280881984515556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/playerShot
+  m_Name: event:/Player Events/playerWalk
   m_EditorClassIdentifier: 
-  Path: event:/playerShot
+  Path: event:/Player Events/playerWalk
   Guid:
-    Data1: -1832418779
-    Data2: 1156140304
-    Data3: 178377346
-    Data4: 1352665684
+    Data1: -549850697
+    Data2: 1293199015
+    Data3: 1087473317
+    Data4: -1771653190
   Banks:
   - {fileID: -4117107195589187929}
   IsStream: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
 --- !u!114 &-4117107195589187929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,11 +42,65 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638379018296918852
+  lastModified: 638380055048085388
   FileSizes:
   - Name: Desktop
-    Value: 634784
+    Value: 668192
   Exists: 1
+--- !u!114 &-2415751684166534425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player Events/playerDeath
+  m_EditorClassIdentifier: 
+  Path: event:/Player Events/playerDeath
+  Guid:
+    Data1: -1150930035
+    Data2: 1183803599
+    Data3: -617790046
+    Data4: 996273244
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2124824041435027010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player Events/playerMeleeHit
+  m_EditorClassIdentifier: 
+  Path: event:/Player Events/playerMeleeHit
+  Guid:
+    Data1: -1618590634
+    Data2: 1215357141
+    Data3: -1197210211
+    Data4: -1579189246
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1328366799290006672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +116,10 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638379018296938858
+  lastModified: 638380055048125391
   FileSizes:
   - Name: Desktop
-    Value: 892
+    Value: 942
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -83,18 +137,19 @@ MonoBehaviour:
   - {fileID: -1328366799290006672}
   - {fileID: -4117107195589187929}
   EditorEvents:
-  - {fileID: -8856717093981830802}
-  - {fileID: 3202561666548413591}
-  - {fileID: 3746985776353746503}
-  - {fileID: 7137447707074219011}
+  - {fileID: 7819290485421999653}
+  - {fileID: -2124824041435027010}
+  - {fileID: -2415751684166534425}
+  - {fileID: 5546211875554463274}
+  - {fileID: -7339280881984515556}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4117107195589187929}
   StringsBanks:
   - {fileID: -1328366799290006672}
-  cacheTime: 638379018296938858
+  cacheTime: 638380055048125391
   cacheVersion: 131609
---- !u!114 &3202561666548413591
+--- !u!114 &5546211875554463274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,36 +159,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/playerMeleeHit
+  m_Name: event:/Player Events/playerMeleeMiss
   m_EditorClassIdentifier: 
-  Path: event:/playerMeleeHit
-  Guid:
-    Data1: -1618590634
-    Data2: 1215357141
-    Data3: -1197210211
-    Data4: -1579189246
-  Banks:
-  - {fileID: -4117107195589187929}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &3746985776353746503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/playerMeleeMiss
-  m_EditorClassIdentifier: 
-  Path: event:/playerMeleeMiss
+  Path: event:/Player Events/playerMeleeMiss
   Guid:
     Data1: 1557151141
     Data2: 1188560598
@@ -148,7 +176,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &7137447707074219011
+--- !u!114 &7819290485421999653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,14 +186,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/playerWalk
+  m_Name: event:/Player Events/playerShot
   m_EditorClassIdentifier: 
-  Path: event:/playerWalk
+  Path: event:/Player Events/playerShot
   Guid:
-    Data1: -549850697
-    Data2: 1293199015
-    Data3: 1087473317
-    Data4: -1771653190
+    Data1: -1832418779
+    Data2: 1156140304
+    Data3: 178377346
+    Data4: 1352665684
   Banks:
   - {fileID: -4117107195589187929}
   IsStream: 0
@@ -174,4 +202,4 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 500
+  Length: 0
