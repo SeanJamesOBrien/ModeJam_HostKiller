@@ -162,9 +162,7 @@ public class BossController : MonoBehaviour, IDamageable
     {
         if (animator && animator.runtimeAnimatorController)
         {
-            GetComponent<Collider2D>().enabled = false;
             animator.SetTrigger("Death");
-            GetComponent<EnemyMovement>().enabled = false;
             EnemyAttack attack = GetComponentInChildren<EnemyAttack>();
             if (attack)
             {
