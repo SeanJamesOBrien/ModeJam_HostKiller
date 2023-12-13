@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{4577940c-062b-4363-ba57-211620795035}">
 		<property name="assetPath">
-			<value>playerShots/playerShot04.wav</value>
+			<value>playerSFX/playerShots/playerShot04.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="EncodableAsset" id="{59bfac9e-0842-41f0-b927-783923a7babc}">
 		<property name="assetPath">
-			<value>playerFoley/playerWalking/</value>
+			<value>playerSFX/playerFoley/playerWalking/</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{09f80cdb-0879-48cc-97fa-6d6aff77ae4e}</destination>
