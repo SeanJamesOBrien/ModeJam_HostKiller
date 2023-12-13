@@ -228,16 +228,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Size.x
-      value: 2.9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Size.y
-      value: 1.8
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e68d959f7fededf4285b57665cf0e125, type: 3}
+      objectReference: {fileID: 21300000, guid: c7c69dd15deefe747b9336c6dcf6eab4, type: 3}
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -248,11 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419531, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419531, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419531, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_LocalPosition.x
@@ -260,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419531, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419531, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_LocalPosition.z
@@ -296,31 +296,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Size.x
-      value: 5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Size.y
-      value: 7
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Offset.x
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2.9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1.8
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419540, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 596876765076419543, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Name
@@ -329,7 +329,7 @@ PrefabInstance:
     - target: {fileID: 2162432810543595664, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9100000, guid: 0ce05585573a903478cf2b99184b187e, type: 2}
     m_RemovedComponents:
     - {fileID: -8880718882963469377, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
     - {fileID: 5100482183596818373, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
@@ -360,7 +360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e321277f7440fe4ebc0a31772140121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  firstHealth: 20
+  secondHealth: 40
   shootingDurationMin: 5
   shootingDurationMax: 10
   chargeNumberMin: 3
