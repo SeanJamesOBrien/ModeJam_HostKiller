@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     public bool IsEnemy { get => isEnemy; set => isEnemy = value; }
     public float LifeTime { get => lifeTime; set => lifeTime = value; }
     public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public int Damage { get => damage; set => damage = value; }
 
     private void Start()
     {

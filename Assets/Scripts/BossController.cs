@@ -4,7 +4,10 @@ using UnityEngine;
 public class BossController : MonoBehaviour, IDamageable
 {
     public static event Action<int, int> OnBossDamaged = delegate { };
-    [SerializeField] int health;
+    [SerializeField] int firstHealth;
+    [SerializeField] int secondHealth;
+    bool isSecondHealthBar = false;
+    int health;
     int maxHealth;
     bool isShootingMode = true;
     Transform player;
@@ -36,14 +39,20 @@ public class BossController : MonoBehaviour, IDamageable
         {
             player = FindAnyObjectByType<PlayerController>().transform;
         }
+        animator = GetComponent<Animator>();
         projectileAttack = GetComponentInChildren<ProjectileAttack>();
         enemyMovement = GetComponentInChildren<EnemyMovement>();
-        maxHealth = health;
+        maxHealth = firstHealth;
+        health = maxHealth;
         shootingDuration = UnityEngine.Random.Range(shootingDurationMin, shootingDurationMax);
     }
 
     private void Update()
     {
+        if(!player)
+        {
+            return;
+        }
         time += Time.deltaTime;
         if (isShootingMode)
         {
@@ -115,7 +124,18 @@ public class BossController : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0)
         {
-            DestroyEnemy();
+            if(!isSecondHealthBar)
+            {
+                isSecondHealthBar = true;
+                maxHealth = secondHealth;
+                health = secondHealth;
+                animator.SetTrigger("Transform");
+            }
+            else
+            {
+                DestroyEnemy();
+            }
+            
         }
         OnBossDamaged?.Invoke(health, maxHealth);
     }
@@ -142,9 +162,7 @@ public class BossController : MonoBehaviour, IDamageable
     {
         if (animator && animator.runtimeAnimatorController)
         {
-            GetComponent<Collider2D>().enabled = false;
             animator.SetTrigger("Death");
-            GetComponent<EnemyMovement>().enabled = false;
             EnemyAttack attack = GetComponentInChildren<EnemyAttack>();
             if (attack)
             {

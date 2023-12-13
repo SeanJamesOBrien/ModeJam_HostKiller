@@ -19,16 +19,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int totalNumberEnemies;
     [SerializeField] int maxEnemiesAtOnce;
     [SerializeField] int minNumEnemies;
-    [SerializeField] Transform ground;
-    Vector2 groundSize;
+    [SerializeField] Vector2 groundSize;
     int remainingEnemies = 0;
     int index = 0;
     bool isPlayerAlive = true;
 
     void Start()
     {
-        groundSize.x = ground.localScale.x / 2;
-        groundSize.y = ground.localScale.y / 2; ;
         remainingEnemies = totalNumberEnemies;
         enemyUI.UpdateText(remainingEnemies);
         SpawnEnemies(maxEnemiesAtOnce);

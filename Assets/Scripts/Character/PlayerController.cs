@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     public static event Action OnPlayerDestroyed = delegate { };
     public static event Action OnPlayerDestroyedComplete = delegate { };
     public static event Action<int> OnHealthChanged = delegate { };
+    public static event Action<bool> OnGodModeChanged = delegate { };
     Animator animator;
+    bool isGodMode = false;
+    bool isGameOver = false;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed;
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     bool isMeleeMode = false;
     [SerializeField] float rangedAttackSpeed = 0.75f;
     [SerializeField] GameObject projectile;  
-    float attackTimer = 0;
+    float rangedAttackTimer = 0;
     [SerializeField] EventReference rangedAttackSound;
 
     [Header("Melee")]
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] LayerMask attackMask;
     [SerializeField] EventReference meleeAttackHitSound;
     [SerializeField] EventReference meleeAttackMissSound;
+    float meleeAttackTimer = 0;
 
     [Header("Health")]
     int health = K.PlayerStartingHealth;
@@ -67,15 +71,21 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (health > 0)
+        if (health > 0 && !isGameOver)
         { 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ToggleMode();
             }
-            attackTimer += Time.deltaTime;
+            rangedAttackTimer += Time.deltaTime;
+            meleeAttackTimer += Time.deltaTime;
             HandleMode();
-        }   
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            isGodMode = !isGodMode;
+            
+        }
     }
 
     void FixedUpdate()
@@ -135,21 +145,21 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void ToggleMode()
     {
         isMeleeMode = !isMeleeMode;
-        attackTimer = 0;
+        rangedAttackTimer = 0;
     }
 
     private void HandleMode()
     {
         if (isMeleeMode)
         {
-            if (attackTimer > meleeAttackSpeed)
+            if (meleeAttackTimer > meleeAttackSpeed)
             {
                 Melee();
             }
         }
         else
         {
-            if (attackTimer > rangedAttackSpeed)
+            if (rangedAttackTimer > rangedAttackSpeed)
             {
                 CrossFire();
             }          
@@ -159,7 +169,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Melee()
     {
         animator.SetTrigger("Attack");      
-        attackTimer = 0;
+        meleeAttackTimer = 0;
     }
 
     private void CrossFire()
@@ -170,13 +180,18 @@ public class PlayerController : MonoBehaviour, IDamageable
             GameObject newProjectile = Instantiate(projectile);
             newProjectile.transform.position = transform.position;
             newProjectile.transform.eulerAngles = new Vector3(0, 0, i);
+            if(isGodMode)
+            {
+                newProjectile.GetComponent<Projectile>().Damage = 1000;
+            }
         }
-        attackTimer = 0;
+        rangedAttackTimer = 0;
     }
 
     public void CalculateDamage(int damage)
     {
-        if(hasInvulnerability)
+        if(hasInvulnerability ||
+           isGodMode)
         {
             return;
         }
@@ -240,6 +255,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void EnemySpawner_OnEnemiesDefeated()
     {
         hasInvulnerability = true;
+        isGameOver = true;
     }
 
     void OnAttack()
@@ -248,10 +264,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (colliders.Length > 0)
         {
             AudioController.Instance.PlayOneShot(meleeAttackHitSound, transform.position);
-            IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
-            if (damageable != null)
+            //IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
+            //if (damageable != null)
+            //{
+            //    damageable.CalculateDamage(meleeDamage);
+            //}
+            foreach (Collider2D collider in colliders)
             {
-                damageable.CalculateDamage(meleeDamage);
+                collider.GetComponent<IDamageable>().CalculateDamage(meleeDamage);
             }
         }
         else
