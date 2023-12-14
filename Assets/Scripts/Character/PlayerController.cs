@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     int flickerBuffer;
     float healthRegenTimer = 0;
     bool hasInvulnerability = false;
+    bool isDead = false;
     SpriteRenderer spriteRenderer;
     [SerializeField] Color normalColour;
     [SerializeField] Color invulnerabilityColour;
@@ -192,7 +193,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void CalculateDamage(int damage)
     {
         if(hasInvulnerability ||
-           isGodMode)
+           isGodMode ||
+           isDead)
         {
             return;
         }
@@ -201,6 +203,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke(health);
         if (health <= 0)
         {
+            isDead = true;
             OnPlayerDestroyed?.Invoke();
             //Time.timeScale = 0;
             animator.SetTrigger("Death");
