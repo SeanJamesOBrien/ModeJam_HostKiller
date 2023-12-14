@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{77a83cdb-ed4d-4361-88e0-6363bb2b05e6}">
+		<property name="assetPath">
+			<value>enemySFX/killerTCell/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{09f80cdb-0879-48cc-97fa-6d6aff77ae4e}</destination>
+		</relationship>
+	</object>
+</objects>
