@@ -28,7 +28,7 @@ public class CircleAttack : MonoBehaviour
             newProjectile.gameObject.transform.rotation = angle;
             newProjectile.IsEnemy = true;
             newProjectile.MovementSpeed = projectileSpeed;
-            angle.eulerAngles = new Vector3(0, 0, rotateAngle + i * (360 / numProjectiles));
+            angle.eulerAngles = new Vector3(0, 0, rotateAngle);
             rotateAngle += angleIncrement;
         }
     }
