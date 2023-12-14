@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{47b6f58d-c0a5-47e1-8615-a639217ab6a1}">
 		<property name="assetPath">
-			<value>Dam 01 0m Stereo.wav</value>
+			<value>Impulse Responses/Dam 01 0m Stereo.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

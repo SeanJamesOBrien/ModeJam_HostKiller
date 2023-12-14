@@ -112,6 +112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   spritePosition: {fileID: 9058550408714884058}
+  footStepSound:
+    Guid:
+      Data1: -549850697
+      Data2: 1293199015
+      Data3: 1087473317
+      Data4: -1771653190
+    Path: event:/Player Events/playerWalk
   rangedAttackSpeed: 0.75
   projectile: {fileID: 747072665796547536, guid: 753ce19e1540840419ace8d603200465, type: 3}
   rangedAttackSound:
@@ -120,7 +127,7 @@ MonoBehaviour:
       Data2: 1156140304
       Data3: 178377346
       Data4: 1352665684
-    Path: event:/playerShot
+    Path: event:/Player Events/playerShot
   meleeAttackSpeed: 1.5
   meleeRange: 2.5
   meleeDamage: 4
@@ -133,19 +140,26 @@ MonoBehaviour:
       Data2: 1215357141
       Data3: -1197210211
       Data4: -1579189246
-    Path: event:/playerMeleeHit
+    Path: event:/Player Events/playerMeleeHit
   meleeAttackMissSound:
     Guid:
       Data1: 1557151141
       Data2: 1188560598
       Data3: -772393594
       Data4: -1645165659
-    Path: event:/playerMeleeMiss
+    Path: event:/Player Events/playerMeleeMiss
   healthRegen: 3
   invulnerabilityDuration: 1.25
   invulnerabilityFlickers: 10
   normalColour: {r: 1, g: 1, b: 1, a: 1}
   invulnerabilityColour: {r: 1, g: 1, b: 1, a: 0}
+  deathSound:
+    Guid:
+      Data1: -1150930035
+      Data2: 1183803599
+      Data3: -617790046
+      Data4: 996273244
+    Path: event:/Player Events/playerDeath
 --- !u!95 &4567725915189866550
 Animator:
   serializedVersion: 5

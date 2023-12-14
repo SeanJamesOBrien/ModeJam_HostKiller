@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{2e361418-f683-4862-96e9-70f4d4b1abb1}">
 		<property name="assetPath">
-			<value>playerMelee/SliceKrushed.wav</value>
+			<value>playerSFX/playerMelee/SliceKrushed.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

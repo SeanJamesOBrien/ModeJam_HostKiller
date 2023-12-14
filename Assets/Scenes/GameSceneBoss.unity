@@ -582,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1429255370}
   - component: {fileID: 1429255369}
+  - component: {fileID: 1429255371}
   m_Layer: 0
   m_Name: Environment (1)
   m_TagString: Untagged
@@ -623,6 +624,25 @@ Transform:
   - {fileID: 188646232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429255371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429255368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b8c27e6d2a6e34c8006c95fc136a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundSound:
+    Guid:
+      Data1: 145770781
+      Data2: 1260517898
+      Data3: 2075452558
+      Data4: 1622152929
+    Path: event:/Background Loops/backgroundLevel06
 --- !u!1 &1439570986
 GameObject:
   m_ObjectHideFlags: 0

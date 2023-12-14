@@ -17,16 +17,16 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] float moveSpeed;
     Rigidbody2D rb;
     [SerializeField] Transform spritePosition;
+    [SerializeField] EventReference footStepSound;
     Vector3 faceRight = new Vector3(1.25f, 0, 0);
     Vector3 faceLeft = new Vector3(-1.25f, 0, 0);
 
-    [Header("Combat")]
-    //PlayerModes currentMode = PlayerModes.Cross;
-    bool isMeleeMode = false;
+    [Header("Ranged")]   
     [SerializeField] float rangedAttackSpeed = 0.75f;
     [SerializeField] GameObject projectile;  
     float rangedAttackTimer = 0;
     [SerializeField] EventReference rangedAttackSound;
+    bool isMeleeMode = false;
 
     [Header("Melee")]
     [SerializeField] float meleeAttackSpeed = 1.5f;
@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     float meleeAttackTimer = 0;
 
     [Header("Health")]
-    int health = K.PlayerStartingHealth;
     [SerializeField] float healthRegen = 1f;
     [SerializeField] float invulnerabilityDuration;
     [SerializeField] int invulnerabilityFlickers;
+    int health = K.PlayerStartingHealth;
     float invulnerabilityFlickerDuration;
     int flickerBuffer;
     float healthRegenTimer = 0;
@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     SpriteRenderer spriteRenderer;
     [SerializeField] Color normalColour;
     [SerializeField] Color invulnerabilityColour;
+    [SerializeField] EventReference deathSound;
 
     void Awake()
     {
@@ -203,6 +204,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             OnPlayerDestroyed?.Invoke();
             //Time.timeScale = 0;
             animator.SetTrigger("Death");
+            AudioController.Instance.PlayOneShot(deathSound, transform.position);
             moveSpeed = 0;
         }
         if (health > 0)
@@ -284,5 +286,10 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         OnPlayerDestroyedComplete?.Invoke();
         Destroy(gameObject);
+    }
+
+    void OnFootStep()
+    {
+        AudioController.Instance.PlayOneShot(footStepSound, transform.position);
     }
 }
