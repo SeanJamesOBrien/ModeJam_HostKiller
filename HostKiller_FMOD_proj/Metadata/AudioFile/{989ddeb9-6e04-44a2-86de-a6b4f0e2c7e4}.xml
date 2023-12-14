@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{0ca5162a-ff22-4d11-b117-91e616d4bd3b}">
+	<object class="AudioFile" id="{989ddeb9-6e04-44a2-86de-a6b4f0e2c7e4}">
 		<property name="assetPath">
-			<value>uiSFX/gameEnd.wav</value>
+			<value>uiSFX/uiClick.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>0.11525000000000001</value>
+			<value>0.11133333333333334</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{09f80cdb-0879-48cc-97fa-6d6aff77ae4e}</destination>
