@@ -26,10 +26,10 @@
 	<object class="MixerBusPanner" id="{ad846cdc-7556-45f0-95dc-a3095b9bf69f}" />
 	<object class="ConvolutionReverbEffect" id="{4b0ea26c-03b0-4316-85d0-cd327d184856}">
 		<property name="endFrame">
-			<value>145976</value>
+			<value>221655</value>
 		</property>
 		<relationship name="referenceableData">
-			<destination>{47b6f58d-c0a5-47e1-8615-a639217ab6a1}</destination>
+			<destination>{aa16e0ff-95df-4987-b2a0-c42057696132}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{37d28420-b76f-4b8f-94e2-bbe398ef9f95}" />

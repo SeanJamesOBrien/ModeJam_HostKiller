@@ -177,7 +177,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>0.13</value>
+			<value>0.16</value>
 		</property>
 		<property name="name" />
 		<relationship name="timeline">
@@ -191,6 +191,7 @@
 		<relationship name="effects">
 			<destination>{e20bab4e-523b-4bc7-a1ae-accf7f922bab}</destination>
 			<destination>{29d74ada-f26a-4ca4-ac7e-f85eb97534a6}</destination>
+			<destination>{7f79758e-2d9b-44ac-8abc-b287255495f7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a29e0d53-fe4f-4389-be46-76a5fc201a4e}" />
@@ -290,6 +291,17 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{29d74ada-f26a-4ca4-ac7e-f85eb97534a6}" />
+	<object class="MixerSend" id="{7f79758e-2d9b-44ac-8abc-b287255495f7}">
+		<property name="level">
+			<value>-44</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{e5ea51d5-2d34-41dd-8516-9770624ad491}</destination>
+		</relationship>
+	</object>
 	<object class="AutomationPoint" id="{e592bcf4-a719-48fe-aa0f-ef903c9888f5}">
 		<property name="position">
 			<value>0</value>

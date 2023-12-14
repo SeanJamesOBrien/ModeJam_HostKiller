@@ -139,7 +139,7 @@
 	</object>
 	<object class="MixerSend" id="{522c2f53-c0d4-4a64-ac31-885c87c20ff1}">
 		<property name="level">
-			<value>-35</value>
+			<value>-34</value>
 		</property>
 		<property name="inputFormat">
 			<value>1</value>
