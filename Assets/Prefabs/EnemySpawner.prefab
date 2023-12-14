@@ -63,4 +63,4 @@ MonoBehaviour:
   totalNumberEnemies: 30
   maxEnemiesAtOnce: 10
   minNumEnemies: 5
-  groundSize: {x: 16, y: 8}
+  groundSize: {x: 14, y: 8}
