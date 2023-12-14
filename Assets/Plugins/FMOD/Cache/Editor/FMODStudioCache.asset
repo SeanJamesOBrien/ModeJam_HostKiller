@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638380194203366170
+  lastModified: 638381057822216150
   FileSizes:
   - Name: Desktop
-    Value: 2609440
+    Value: 2609792
   Exists: 1
 --- !u!114 &-2415751684166534425
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 35000
+  Length: 32281
 --- !u!114 &-1328366799290006672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638380194203406184
+  lastModified: 638380849720100505
   FileSizes:
   - Name: Desktop
     Value: 1294
@@ -263,7 +263,7 @@ MonoBehaviour:
   - {fileID: -4117107195589187929}
   StringsBanks:
   - {fileID: -1328366799290006672}
-  cacheTime: 638380194203406184
+  cacheTime: 638381057822216150
   cacheVersion: 131609
 --- !u!114 &1261270906011429688
 MonoBehaviour:
@@ -318,7 +318,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 45334
+  Length: 35160
 --- !u!114 &5546211875554463274
 MonoBehaviour:
   m_ObjectHideFlags: 0

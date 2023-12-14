@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     public static event Action<int> OnEnemyDestroyed = delegate { };
     [SerializeField] int health;
+    [SerializeField] EventReference spawnSound;
+    [SerializeField] EventReference deathSound;
     Transform player;
     int id;
     Animator animator;
@@ -19,6 +22,7 @@ public class Enemy : MonoBehaviour, IDamageable
             health = 2;
         }
         animator = GetComponent<Animator>();
+        AudioController.Instance.PlayOneShot(spawnSound, transform.position);
     }
 
     public void CalculateDamage(int damage)
@@ -45,6 +49,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if(animator.runtimeAnimatorController)
         {
+            AudioController.Instance.PlayOneShot(deathSound, transform.position);
             GetComponent<Collider2D>().enabled = false;
             animator.SetTrigger("Death");
             GetComponent<EnemyMovement>().enabled = false;
