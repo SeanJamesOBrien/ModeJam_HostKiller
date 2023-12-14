@@ -1698,18 +1698,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 638094743554305427, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
-      propertyPath: chargeSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 638094743554305427, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
-      propertyPath: restDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 638094743554305427, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
-      propertyPath: chargeDuration
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4704324213375625744, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
       propertyPath: m_Name
       value: Boss
