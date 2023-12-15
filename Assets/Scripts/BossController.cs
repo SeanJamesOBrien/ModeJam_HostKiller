@@ -131,8 +131,7 @@ public class BossController : MonoBehaviour, IDamageable
     {
         if(isSecondHealthBar)
         {
-            projectileAttack.SetActive(true);
-            circleAttack.SetActive(false);
+            projectileAttack.SetActive(mode);
         }
         else
         {       
@@ -157,6 +156,9 @@ public class BossController : MonoBehaviour, IDamageable
                 maxHealth = secondHealth;
                 health = secondHealth;
                 animator.SetTrigger("Transform");
+                currentCharges = 0;
+                isCharging = false;
+                isShootingMode = true;
             }
             else
             {
