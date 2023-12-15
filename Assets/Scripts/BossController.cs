@@ -13,6 +13,7 @@ public class BossController : MonoBehaviour, IDamageable
     int maxHealth;
     bool isDead = false;
     bool isShootingMode = true;
+    bool isTransformed = false;
     Transform player;
     Animator animator;
     [SerializeField] EventReference winSound;
@@ -56,7 +57,7 @@ public class BossController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if(!player)
+        if(!player || isDead)
         {
             return;
         }
@@ -216,7 +217,11 @@ public class BossController : MonoBehaviour, IDamageable
 
     void OnTransform()
     {
-        projectileAttack.SetActive(true);
-        isDead = false;
+        if(!isTransformed)
+        {
+            projectileAttack.SetActive(true);
+            isDead = false;
+            isTransformed = true;
+        }
     }
 }
