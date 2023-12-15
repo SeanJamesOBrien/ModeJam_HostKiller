@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{7aa428bd-a864-43d1-be56-638ee68452b2}">
+	<object class="AudioFile" id="{b8a71d67-21af-4c9b-8151-e8e424dc54fa}">
 		<property name="assetPath">
-			<value>enemySFX/bossPill/bossDeath.wav</value>
+			<value>enemySFX/killerTCell/killerShot.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.1171458333333333</value>
+			<value>0.22064583333333335</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{09f80cdb-0879-48cc-97fa-6d6aff77ae4e}</destination>

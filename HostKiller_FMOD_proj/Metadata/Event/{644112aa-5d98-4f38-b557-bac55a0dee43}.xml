@@ -5,7 +5,7 @@
 			<value>killerShot</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{805892d9-7c18-4306-8ba8-645b0d8b12c2}</destination>
@@ -30,6 +30,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{3ac8687a-a35d-4d8b-9532-12abcfe169b2}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{018920bd-4ce7-4868-baa5-3c69ed3993d1}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{e8df0536-e149-415c-bbcb-c693c5392648}">
@@ -69,9 +72,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{007df12a-f7eb-4209-a5d0-d3125f190be8}">
-		<property name="volume">
-			<value>-14</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{5d585e87-9b65-4919-9943-66f0b990c303}</destination>
 		</relationship>
@@ -89,6 +89,7 @@
 		<relationship name="sounds">
 			<destination>{99896232-3661-4cce-bc25-fe2fc4e6cb6a}</destination>
 			<destination>{24396742-4c95-46af-a8a1-12a8fb855e58}</destination>
+			<destination>{36523aec-b2d9-4fa8-a7b8-9b8de8a2f7c2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{b12c8a35-05be-48ea-a89d-5fea921f6b4c}">
@@ -101,13 +102,18 @@
 		<relationship name="effects">
 			<destination>{c0e66106-a24c-471d-83e1-1d1016b3dc5c}</destination>
 			<destination>{afed1781-695e-4800-b812-27ebed30ca10}</destination>
+			<destination>{46467038-b4ff-478b-8d24-6c72dea01995}</destination>
 			<destination>{b83fb483-a78a-4ca9-b2d8-4881717ac8c3}</destination>
+			<destination>{37e8bd69-ebf9-4346-b63d-3491ed00b8c6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ccc6556e-9ee7-47a3-8ec6-ca85ef9b2390}" />
 	<object class="MultiSound" id="{99896232-3661-4cce-bc25-fe2fc4e6cb6a}">
+		<property name="volume">
+			<value>-10.5</value>
+		</property>
 		<property name="pitch">
-			<value>12</value>
+			<value>8.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{19ef20c5-b80b-48fe-9106-fb3bce344493}</destination>
@@ -119,8 +125,11 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{24396742-4c95-46af-a8a1-12a8fb855e58}">
+		<property name="volume">
+			<value>-8</value>
+		</property>
 		<property name="pitch">
-			<value>1.60000002</value>
+			<value>0.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{2a98130e-9cf6-4c1e-a758-13e260b90fa0}</destination>
@@ -133,13 +142,24 @@
 			<destination>{d16a8bb9-9fe1-4ec7-8d43-3eef1eaeb849}</destination>
 		</relationship>
 	</object>
+	<object class="SingleSound" id="{36523aec-b2d9-4fa8-a7b8-9b8de8a2f7c2}">
+		<property name="volume">
+			<value>4</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{b8a71d67-21af-4c9b-8151-e8e424dc54fa}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{97b0953f-bac4-4797-b034-ab5e35ccc3d0}" />
 	<object class="ThreeEQEffect" id="{c0e66106-a24c-471d-83e1-1d1016b3dc5c}">
+		<property name="lowGain">
+			<value>-8.5</value>
+		</property>
 		<property name="midGain">
-			<value>-3.5</value>
+			<value>-5</value>
 		</property>
 		<property name="highGain">
-			<value>-11</value>
+			<value>-10.5</value>
 		</property>
 		<property name="highCrossover">
 			<value>4600</value>
@@ -149,6 +169,14 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{afed1781-695e-4800-b812-27ebed30ca10}" />
+	<object class="PitchShifterEffect" id="{46467038-b4ff-478b-8d24-6c72dea01995}">
+		<property name="pitch">
+			<value>1.75999999</value>
+		</property>
+		<property name="fftSize">
+			<value>256</value>
+		</property>
+	</object>
 	<object class="MixerSend" id="{b83fb483-a78a-4ca9-b2d8-4881717ac8c3}">
 		<property name="level">
 			<value>-38</value>
@@ -159,6 +187,17 @@
 		<relationship name="mixerReturn">
 			<destination>{e5ea51d5-2d34-41dd-8516-9770624ad491}</destination>
 		</relationship>
+	</object>
+	<object class="PannerEffect" id="{37e8bd69-ebf9-4346-b63d-3491ed00b8c6}">
+		<property name="surroundStereoSeparation">
+			<value>-72.4764404</value>
+		</property>
+		<property name="surroundStereoAxis">
+			<value>180</value>
+		</property>
+		<property name="overridingOutputFormat">
+			<value>0</value>
+		</property>
 	</object>
 	<object class="RandomizerModulator" id="{19ef20c5-b80b-48fe-9106-fb3bce344493}">
 		<property name="nameOfPropertyBeingModulated">

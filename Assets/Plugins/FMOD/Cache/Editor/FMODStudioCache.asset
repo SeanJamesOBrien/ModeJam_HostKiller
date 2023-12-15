@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638381516533280936
+  lastModified: 638381453228278726
   FileSizes:
   - Name: Desktop
     Value: 2609792
@@ -224,7 +224,7 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638381516533290945
+  lastModified: 638380753267173201
   FileSizes:
   - Name: Desktop
     Value: 1294
@@ -263,7 +263,7 @@ MonoBehaviour:
   - {fileID: -4117107195589187929}
   StringsBanks:
   - {fileID: -1328366799290006672}
-  cacheTime: 638381516533290945
+  cacheTime: 638381453228278726
   cacheVersion: 131609
 --- !u!114 &1261270906011429688
 MonoBehaviour:
