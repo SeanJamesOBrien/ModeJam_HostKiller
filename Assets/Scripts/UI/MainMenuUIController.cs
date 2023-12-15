@@ -13,7 +13,7 @@ public class MainMenuUIController : MonoBehaviour
 
     public void StartGame()
     {
-        ProgressionController.Instance.StartNextLevel();
+        SceneController.Instance.LoadNextScene(K.TutorialScene);
         creditPanel.SetActive(false);
     }
 

@@ -11,6 +11,8 @@ public static class K
     public static string GameScene = "GameScene";
     public static string MainMenuScene = "MainMenu";
     public static string BossScene = "GameSceneBoss";
+    public static string TutorialScene = "TutorialScene";
+    public static string EndCardScene = "EndCardScene";
 
     public static float ChargeMultiplier = 2.5f;
 

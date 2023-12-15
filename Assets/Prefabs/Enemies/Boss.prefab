@@ -328,8 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e321277f7440fe4ebc0a31772140121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstHealth: 40
-  secondHealth: 80
+  firstHealth: 30
+  secondHealth: 60
   winSound:
     Guid:
       Data1: 997180826

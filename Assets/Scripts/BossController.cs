@@ -176,7 +176,7 @@ public class BossController : MonoBehaviour, IDamageable
     private void OnDestroy()
     {
         Cursor.visible = true;
-        SceneController.Instance.LoadNextScene(K.MainMenuScene);
+        SceneController.Instance.LoadNextScene(K.EndCardScene);
     }
 
     private void DestroyEnemy()
