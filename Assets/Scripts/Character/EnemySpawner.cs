@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] Transform playerPosition;
     [SerializeField] EnemyCountUI enemyUI;
+    [SerializeField] GameObject warning;
     [SerializeField] EventReference winSound;
 
     [Header("Spawn Settings")]
@@ -83,14 +84,7 @@ public class EnemySpawner : MonoBehaviour
         {
             return;
         }
-        
-        Enemy newEnemy = Instantiate(GetRandomEnemy(),
-                                     GetPosition(),
-                                     Quaternion.identity,
-                                     transform);
-        newEnemy.Player = playerPosition;
-        newEnemy.Id = index;
-        enemies.Add(index, newEnemy);
+        StartCoroutine(SpawnWarning(index));
         index++;
     }
 
@@ -145,6 +139,30 @@ public class EnemySpawner : MonoBehaviour
             yield return null;
         }
         OnLevelOver?.Invoke();
+    }
+
+    public IEnumerator SpawnWarning(int index)
+    {
+        Vector3 position = GetPosition();
+        GameObject spawnWarning = Instantiate(warning, position, Quaternion.identity, transform);
+        Enemy newEnemy = Instantiate(GetRandomEnemy(),
+                           position,
+                           Quaternion.identity,
+                           transform);
+        newEnemy.Player = playerPosition;
+        newEnemy.Id = index;
+        enemies.Add(index, newEnemy);
+        newEnemy.gameObject.SetActive(false);
+
+        float time = 0;
+        while (time < 1)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(spawnWarning);
+        newEnemy.gameObject.SetActive(true);
     }
 
     private void PlayerController_OnPlayerDestroyed()

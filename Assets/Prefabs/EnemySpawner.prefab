@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 9125430059728675867, guid: 10da6b94f816aa74686f73931422b675, type: 3}
   playerPosition: {fileID: 0}
   enemyUI: {fileID: 0}
+  warning: {fileID: 4560841181287402700, guid: dcf25a8531ba0674d98a0fed31c473f4, type: 3}
   winSound:
     Guid:
       Data1: 997180826
