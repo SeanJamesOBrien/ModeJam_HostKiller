@@ -31,6 +31,7 @@ public class ProgressionController : MonoBehaviour
 
     public void StartNextLevel()
     {       
+        Debug.Log("level " +  level);
         if(level < K.NumberOfLevels)
         {
             Debug.Log(K.GameScene + level);

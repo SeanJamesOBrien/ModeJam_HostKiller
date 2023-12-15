@@ -68,6 +68,11 @@ public class GameUIController : MonoBehaviour
         ProgressionController.Instance.StartNextLevel();
     }
 
+    public void BossLevel()
+    {
+        SceneController.Instance.LoadNextScene(K.BossScene);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

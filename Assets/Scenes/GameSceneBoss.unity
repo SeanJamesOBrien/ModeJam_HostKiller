@@ -1547,6 +1547,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30.000061
       objectReference: {fileID: 0}
+    - target: {fileID: 2067901509670110462, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2067901509816025880}
+    - target: {fileID: 2067901509670110462, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BossLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 2067901509979689666, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1700,6 +1708,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2067901510975107790, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
   m_PrefabInstance: {fileID: 2067901509816025878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2067901509816025880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2067901510975107791, guid: b55ae0f5f2cd3fe48b085bdcf1533525, type: 3}
+  m_PrefabInstance: {fileID: 2067901509816025878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48ec593205ab8342972f9eee84f9af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7413930475142849532
 PrefabInstance:
   m_ObjectHideFlags: 0
