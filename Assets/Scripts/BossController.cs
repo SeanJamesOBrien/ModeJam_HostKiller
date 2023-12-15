@@ -16,7 +16,8 @@ public class BossController : MonoBehaviour, IDamageable
     [Header("Shooting")]
     [SerializeField] float shootingDurationMin = 5;
     [SerializeField] float shootingDurationMax = 10;
-    ProjectileAttack projectileAttack;
+    [SerializeField] GameObject projectileAttack;
+    [SerializeField] GameObject circleAttack;
     EnemyMovement enemyMovement;
     float shootingDuration;
     float time;
@@ -40,7 +41,7 @@ public class BossController : MonoBehaviour, IDamageable
             player = FindAnyObjectByType<PlayerController>().transform;
         }
         animator = GetComponent<Animator>();
-        projectileAttack = GetComponentInChildren<ProjectileAttack>();
+        //projectileAttack = GetComponentInChildren<ProjectileAttack>();
         enemyMovement = GetComponentInChildren<EnemyMovement>();
         maxHealth = firstHealth;
         health = maxHealth;
@@ -113,10 +114,23 @@ public class BossController : MonoBehaviour, IDamageable
     void ToggleMode(bool mode)
     {
         isShootingMode = mode;
-        projectileAttack.enabled = mode;
+        ToggleShooting(mode);
         enemyMovement.enabled = mode;
         currentCharges = 0;
         time = 0;
+    }
+
+    private void ToggleShooting(bool mode)
+    {
+        if(isSecondHealthBar)
+        {
+            projectileAttack.SetActive(true);
+            circleAttack.SetActive(false);
+        }
+        else
+        {       
+            circleAttack.SetActive(mode);
+        }
     }
 
     public void CalculateDamage(int damage)
@@ -126,6 +140,7 @@ public class BossController : MonoBehaviour, IDamageable
         {
             if(!isSecondHealthBar)
             {
+                circleAttack.SetActive(false);
                 isSecondHealthBar = true;
                 maxHealth = secondHealth;
                 health = secondHealth;
@@ -179,4 +194,10 @@ public class BossController : MonoBehaviour, IDamageable
     {
         Destroy(gameObject);
     }
+
+    void OnTransform()
+    {
+        projectileAttack.SetActive(true);
+    }
+
 }

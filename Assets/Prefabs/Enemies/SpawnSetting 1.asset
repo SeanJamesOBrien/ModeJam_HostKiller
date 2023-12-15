@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1329b83c5d7cda44a81780ae5c75ffd1, type: 3}
   m_Name: SpawnSetting 1
   m_EditorClassIdentifier: 
-  spawnChances: 1900000023000000190000000a00000005000000
+  spawnChances: 1e000000190000002800000005000000
