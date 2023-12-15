@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 2067901509670110460}
   - component: {fileID: 2067901509670110463}
   - component: {fileID: 2067901509670110462}
+  - component: {fileID: 7009389152173054249}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -280,6 +281,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7009389152173054249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901509670110448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901509713221206
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +319,7 @@ GameObject:
   - component: {fileID: 2067901509713221202}
   - component: {fileID: 2067901509713221205}
   - component: {fileID: 2067901509713221204}
+  - component: {fileID: 9055410818837520774}
   m_Layer: 5
   m_Name: NextLevelButton
   m_TagString: Untagged
@@ -413,6 +441,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9055410818837520774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901509713221206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901509749345992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1659,7 @@ GameObject:
   - component: {fileID: 2067901510528202885}
   - component: {fileID: 2067901510528202884}
   - component: {fileID: 2067901510528202887}
+  - component: {fileID: 5984172951223608941}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1726,6 +1781,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5984172951223608941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901510528202905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901510614289602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2164,7 @@ GameObject:
   - component: {fileID: 2067901510880513684}
   - component: {fileID: 2067901510880513687}
   - component: {fileID: 2067901510880513686}
+  - component: {fileID: 1700942377635963491}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2204,6 +2286,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1700942377635963491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901510880513640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901510975107778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,6 +2721,7 @@ GameObject:
   - component: {fileID: 2067901511117582578}
   - component: {fileID: 2067901511117582581}
   - component: {fileID: 2067901511117582580}
+  - component: {fileID: 2873086453810747461}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -2734,6 +2843,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2873086453810747461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901511117582582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901511165264691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,6 +3015,7 @@ GameObject:
   - component: {fileID: 2067901511181221123}
   - component: {fileID: 2067901511181221122}
   - component: {fileID: 2067901511181221125}
+  - component: {fileID: 2742314783377865696}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -3001,6 +3137,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2742314783377865696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901511181221127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901511349110689
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,6 +3390,7 @@ GameObject:
   - component: {fileID: 2067901511438099227}
   - component: {fileID: 2067901511438099226}
   - component: {fileID: 2067901511438099229}
+  - component: {fileID: 7881102106835445399}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -3349,6 +3512,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7881102106835445399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901511438099231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901511462410251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,6 +3763,7 @@ GameObject:
   - component: {fileID: 2067901511713054043}
   - component: {fileID: 2067901511713054042}
   - component: {fileID: 2067901511713054045}
+  - component: {fileID: 1421289140717175016}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -3695,6 +3885,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1421289140717175016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901511713054047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &2067901511746158165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +3923,7 @@ GameObject:
   - component: {fileID: 2067901511746158161}
   - component: {fileID: 2067901511746158160}
   - component: {fileID: 2067901511746158163}
+  - component: {fileID: 1042763818675643211}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -3828,6 +4045,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1042763818675643211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067901511746158165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb492bd32776b5b4293c3ed006afc720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverSound:
+    Guid:
+      Data1: 1633242891
+      Data2: 1090491981
+      Data3: -1981899104
+      Data4: 1502633833
+    Path: event:/UI Events/uiHover
+  clickSound:
+    Guid:
+      Data1: 1155437133
+      Data2: 1080080107
+      Data3: 995960723
+      Data4: 947700857
+    Path: event:/UI Events/uiClick
 --- !u!1 &3398764582563136556
 GameObject:
   m_ObjectHideFlags: 0

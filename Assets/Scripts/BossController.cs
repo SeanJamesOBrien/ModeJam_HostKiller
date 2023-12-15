@@ -1,3 +1,5 @@
+using FMOD;
+using FMODUnity;
 using System;
 using UnityEngine;
 
@@ -12,6 +14,8 @@ public class BossController : MonoBehaviour, IDamageable
     bool isShootingMode = true;
     Transform player;
     Animator animator;
+    [SerializeField] EventReference winSound;
+    [SerializeField] EventReference deathSound;
 
     [Header("Shooting")]
     [SerializeField] float shootingDurationMin = 5;
@@ -32,6 +36,7 @@ public class BossController : MonoBehaviour, IDamageable
     [SerializeField] float chargeDuration;
     [SerializeField] float restDuration;
     bool isCharging = false;
+    [SerializeField] EventReference chargeSound;
 
 
     private void Awake()
@@ -82,6 +87,7 @@ public class BossController : MonoBehaviour, IDamageable
         {
             if (time >= restDuration)
             {
+                AudioController.Instance.PlayOneShot(chargeSound, transform.position);
                 isCharging = true;
                 chargeDirection = player.position - transform.position;
                 time = 0;
@@ -174,7 +180,8 @@ public class BossController : MonoBehaviour, IDamageable
     }
 
     private void DestroyEnemy()
-    {
+    {        
+        AudioController.Instance.PlayOneShot(deathSound, transform.position);
         if (animator && animator.runtimeAnimatorController)
         {
             animator.SetTrigger("Death");
@@ -192,6 +199,7 @@ public class BossController : MonoBehaviour, IDamageable
 
     void OnDeath()
     {
+        AudioController.Instance.PlayOneShot(winSound, transform.position);
         Destroy(gameObject);
     }
 

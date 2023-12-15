@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class CircleAttack : MonoBehaviour
     Quaternion angle;
     float time = 0;
     float rotateAngle;
+    [SerializeField] EventReference shootingSound;
 
     void Start()
     {
@@ -22,6 +24,7 @@ public class CircleAttack : MonoBehaviour
         time += Time.deltaTime;
         if (time >= attackSpeed)
         {
+            AudioController.Instance.PlayOneShot(shootingSound, transform.position);
             time = 0;
             Projectile newProjectile = Instantiate(projectile);
             newProjectile.gameObject.transform.position = transform.position;

@@ -224,3 +224,10 @@ MonoBehaviour:
       Data3: -437249098
       Data4: -1728524041
     Path: event:/Enemy Events/enemyDeath
+  collisionSound:
+    Guid:
+      Data1: 122406671
+      Data2: 1101026822
+      Data3: -542816629
+      Data4: -2094444096
+    Path: event:/Enemy Events/White Blood Cells/whiteSlam

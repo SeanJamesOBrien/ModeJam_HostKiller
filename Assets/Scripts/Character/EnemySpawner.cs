@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] Transform playerPosition;
     [SerializeField] EnemyCountUI enemyUI;
+    [SerializeField] EventReference winSound;
 
     [Header("Spawn Settings")]
     [SerializeField] LayerMask layerMask;
@@ -23,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     int remainingEnemies = 0;
     int index = 0;
     bool isPlayerAlive = true;
+
 
     void Start()
     {
@@ -55,6 +58,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if(remainingEnemies <= 0)
         {
+            AudioController.Instance.PlayOneShot(winSound, transform.position);
             OnEnemiesDefeated?.Invoke();
             StartCoroutine(GameOverDelay());   
         }

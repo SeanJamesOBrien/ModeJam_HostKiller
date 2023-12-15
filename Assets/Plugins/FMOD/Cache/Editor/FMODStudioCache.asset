@@ -81,6 +81,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 265
+--- !u!114 &-6731580596271906354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/uiClick
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/uiClick
+  Guid:
+    Data1: 1155437133
+    Data2: 1080080107
+    Data3: 995960723
+    Data4: 947700857
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6682065581071193743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/White Blood Cells/whiteSlam
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/White Blood Cells/whiteSlam
+  Guid:
+    Data1: 122406671
+    Data2: 1101026822
+    Data3: -542816629
+    Data4: -2094444096
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 315
+--- !u!114 &-6186439108754910067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player Events/playerWin
+  m_EditorClassIdentifier: 
+  Path: event:/Player Events/playerWin
+  Guid:
+    Data1: 997180826
+    Data2: 1186644431
+    Data3: 1767813536
+    Data4: 1426803757
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6577
 --- !u!114 &-4117107195589187929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,11 +177,38 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638381453228278726
+  lastModified: 638381909553021677
   FileSizes:
   - Name: Desktop
-    Value: 2609792
+    Value: 2716928
   Exists: 1
+--- !u!114 &-2924940148776963952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/Germ Cell/germShot
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/Germ Cell/germShot
+  Guid:
+    Data1: 1156825647
+    Data2: 1227784401
+    Data3: 464436373
+    Data4: -656642477
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2415751684166534425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,10 +332,10 @@ MonoBehaviour:
   Path: HostKiller_FMOD_proj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638380753267173201
+  lastModified: 638381909553081688
   FileSizes:
   - Name: Desktop
-    Value: 1294
+    Value: 1806
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -258,12 +366,22 @@ MonoBehaviour:
   - {fileID: -8590000747808209358}
   - {fileID: 1261270906011429688}
   - {fileID: 2853111123936099772}
+  - {fileID: 6989481194022111592}
+  - {fileID: -6682065581071193743}
+  - {fileID: -2924940148776963952}
+  - {fileID: 2170662916361389138}
+  - {fileID: -6731580596271906354}
+  - {fileID: 8289078906604861000}
+  - {fileID: -6186439108754910067}
+  - {fileID: 8894674382405920444}
+  - {fileID: 2066630473566411219}
+  - {fileID: 8413448498304541581}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4117107195589187929}
   StringsBanks:
   - {fileID: -1328366799290006672}
-  cacheTime: 638381453228278726
+  cacheTime: 638381909553081688
   cacheVersion: 131609
 --- !u!114 &1261270906011429688
 MonoBehaviour:
@@ -292,6 +410,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 35000
+--- !u!114 &2066630473566411219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/Pill Boss/bossShot
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/Pill Boss/bossShot
+  Guid:
+    Data1: -869957708
+    Data2: 1153430638
+    Data3: -465417025
+    Data4: 662698057
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2170662916361389138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/Fungal Spore/fungalRun
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/Fungal Spore/fungalRun
+  Guid:
+    Data1: 1319885873
+    Data2: 1341968564
+    Data3: 438762126
+    Data4: 1094764530
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 130
 --- !u!114 &2853111123936099772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +509,33 @@ MonoBehaviour:
     Data2: 1188560598
     Data3: -772393594
     Data4: -1645165659
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6989481194022111592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI Events/uiHover
+  m_EditorClassIdentifier: 
+  Path: event:/UI Events/uiHover
+  Guid:
+    Data1: 1633242891
+    Data2: 1090491981
+    Data3: -1981899104
+    Data4: 1502633833
   Banks:
   - {fileID: -4117107195589187929}
   IsStream: 0
@@ -418,6 +617,87 @@ MonoBehaviour:
     Data2: 1249009837
     Data3: 342163078
     Data4: 1216487474
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8289078906604861000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/Pill Boss/bossDeath
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/Pill Boss/bossDeath
+  Guid:
+    Data1: -1665159275
+    Data2: 1113025067
+    Data3: -527997293
+    Data4: 1570955891
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1117
+--- !u!114 &8413448498304541581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/Pill Boss/bossDash
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/Pill Boss/bossDash
+  Guid:
+    Data1: -1775338284
+    Data2: 1078179839
+    Data3: -280887633
+    Data4: -1124563513
+  Banks:
+  - {fileID: -4117107195589187929}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 869
+--- !u!114 &8894674382405920444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Events/Killer-T Cells/killerShot
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Events/Killer-T Cells/killerShot
+  Guid:
+    Data1: 1681986218
+    Data2: 1329094040
+    Data3: -977643595
+    Data4: 1139674458
   Banks:
   - {fileID: -4117107195589187929}
   IsStream: 0

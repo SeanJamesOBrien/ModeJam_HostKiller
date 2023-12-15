@@ -51,6 +51,13 @@ MonoBehaviour:
   projectileLifeTime: 0.75
   projectileStarts:
   - {fileID: 7242831092370382134}
+  shootingSound:
+    Guid:
+      Data1: 1156825647
+      Data2: 1227784401
+      Data3: 464436373
+      Data4: -656642477
+    Path: event:/Enemy Events/Germ Cell/germShot
 --- !u!1 &7194965102378066330
 GameObject:
   m_ObjectHideFlags: 0

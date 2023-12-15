@@ -148,6 +148,13 @@ MonoBehaviour:
   - {fileID: 6050541061484073778}
   - {fileID: 4648216617326492696}
   - {fileID: 6977060057652153260}
+  shootingSound:
+    Guid:
+      Data1: 1681986218
+      Data2: 1329094040
+      Data3: -977643595
+      Data4: 1139674458
+    Path: event:/Enemy Events/Killer-T Cells/killerShot
 --- !u!1001 &1546607691385289500
 PrefabInstance:
   m_ObjectHideFlags: 0

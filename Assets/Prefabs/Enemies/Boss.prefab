@@ -107,10 +107,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 747072665796547547, guid: 1a4cb6f6400ff904a8f105a9a7cfdc3a, type: 3}
-  numProjectiles: 1
   attackSpeed: 0.1
   projectileSpeed: 3
   angleIncrement: 22
+  shootingSound:
+    Guid:
+      Data1: -869957708
+      Data2: 1153430638
+      Data3: -465417025
+      Data4: 662698057
+    Path: event:/Enemy Events/Pill Boss/bossShot
 --- !u!1 &4704324213375625744
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,15 +330,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstHealth: 40
   secondHealth: 80
+  winSound:
+    Guid:
+      Data1: 997180826
+      Data2: 1186644431
+      Data3: 1767813536
+      Data4: 1426803757
+    Path: event:/Player Events/playerWin
+  deathSound:
+    Guid:
+      Data1: -1665159275
+      Data2: 1113025067
+      Data3: -527997293
+      Data4: 1570955891
+    Path: event:/Enemy Events/Pill Boss/bossDeath
   shootingDurationMin: 5
   shootingDurationMax: 10
-  projectileAttack: {fileID: 7532375707551118105}
-  circleAttack: {fileID: 6453566202161549012}
+  projectileAttack: {fileID: 0}
+  circleAttack: {fileID: 0}
   chargeNumberMin: 2
   chargeNumberMax: 5
   chargeSpeed: 2.5
   chargeDuration: 1.5
   restDuration: 2
+  chargeSound:
+    Guid:
+      Data1: -1775338284
+      Data2: 1078179839
+      Data3: -280887633
+      Data4: -1124563513
+    Path: event:/Enemy Events/Pill Boss/bossDash
 --- !u!1 &5189006479513965028
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +450,13 @@ MonoBehaviour:
   - {fileID: 2264350872454590291}
   - {fileID: 3176583811140815236}
   - {fileID: 7527653953720616213}
+  shootingSound:
+    Guid:
+      Data1: -869957708
+      Data2: 1153430638
+      Data3: -465417025
+      Data4: 662698057
+    Path: event:/Enemy Events/Pill Boss/bossShot
 --- !u!1 &6353077765075352369
 GameObject:
   m_ObjectHideFlags: 0

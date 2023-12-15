@@ -57,6 +57,13 @@ MonoBehaviour:
   - {fileID: 9125430059728675867, guid: 10da6b94f816aa74686f73931422b675, type: 3}
   playerPosition: {fileID: 0}
   enemyUI: {fileID: 0}
+  winSound:
+    Guid:
+      Data1: 997180826
+      Data2: 1186644431
+      Data3: 1767813536
+      Data4: 1426803757
+    Path: event:/Player Events/playerWin
   layerMask:
     serializedVersion: 2
     m_Bits: 192

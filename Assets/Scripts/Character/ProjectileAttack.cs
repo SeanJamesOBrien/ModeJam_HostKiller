@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class ProjectileAttack : EnemyAttack
@@ -9,6 +10,7 @@ public class ProjectileAttack : EnemyAttack
     [SerializeField] Transform[] projectileStarts;   
     Vector2 direction;
     float angle;
+    [SerializeField] EventReference shootingSound;
 
     private void Start()
     {
@@ -52,6 +54,10 @@ public class ProjectileAttack : EnemyAttack
         if(!target)
         {
             return;
+        }
+        if(!shootingSound.IsNull)
+        {
+            AudioController.Instance.PlayOneShot(shootingSound, transform.position);
         }
         foreach (Transform projectileStart in projectileStarts)
         {

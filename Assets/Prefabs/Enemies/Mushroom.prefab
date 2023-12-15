@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6085452513338292243}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7176323778883140023}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4959569513304600820
 MonoBehaviour:
@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b68d5da95c887541825a58a8ef9967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runningSound:
+    Guid:
+      Data1: 1319885873
+      Data2: 1341968564
+      Data3: 438762126
+      Data4: 1094764530
+    Path: event:/Enemy Events/Fungal Spore/fungalRun
 --- !u!58 &5870677727545462538
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -55,6 +62,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -66,6 +92,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 596876765076419530, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
@@ -169,6 +196,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 596876765076419531, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6433960683789221595}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e18d898218d1f43bffaaf03d43f850, type: 3}
 --- !u!4 &7176323778883140023 stripped
 Transform:

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] int health;
     [SerializeField] EventReference spawnSound;
     [SerializeField] EventReference deathSound;
+    [SerializeField] EventReference collisionSound;
     Transform player;
     int id;
     Animator animator;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer(K.PlayerLayer))
         {
+            AudioController.Instance.PlayOneShot(collisionSound, transform.position);
             collision.gameObject.GetComponent<IDamageable>().CalculateDamage(K.EnemyDamage);
             DestroyEnemy();
         }
