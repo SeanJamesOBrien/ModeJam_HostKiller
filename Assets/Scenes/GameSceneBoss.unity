@@ -1728,6 +1728,26 @@ PrefabInstance:
       propertyPath: projectileSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7532375707551118105, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
+      propertyPath: shootingSound.Path
+      value: event:/Enemy Events/Killer-T Cells/killerShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532375707551118105, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
+      propertyPath: shootingSound.Guid.Data1
+      value: 1681986218
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532375707551118105, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
+      propertyPath: shootingSound.Guid.Data2
+      value: 1329094040
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532375707551118105, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
+      propertyPath: shootingSound.Guid.Data3
+      value: -977643595
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532375707551118105, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
+      propertyPath: shootingSound.Guid.Data4
+      value: 1139674458
+      objectReference: {fileID: 0}
     - target: {fileID: 8399206496816361056, guid: cfb1cb9ad909395479b49747384c84be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
