@@ -83,11 +83,12 @@ public class PlayerController : MonoBehaviour, IDamageable
             meleeAttackTimer += Time.deltaTime;
             HandleMode();
         }
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             isGodMode = !isGodMode;
-            
         }
+        #endif
     }
 
     void FixedUpdate()
