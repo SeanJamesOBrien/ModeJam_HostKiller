@@ -11,6 +11,7 @@ public class BossController : MonoBehaviour, IDamageable
     bool isSecondHealthBar = false;
     int health;
     int maxHealth;
+    bool isDead = false;
     bool isShootingMode = true;
     Transform player;
     Animator animator;
@@ -141,10 +142,15 @@ public class BossController : MonoBehaviour, IDamageable
 
     public void CalculateDamage(int damage)
     {
+        if(isDead)
+        {
+            return;
+        }
         health -= damage;
         if (health <= 0)
         {
-            if(!isSecondHealthBar)
+            isDead = true;
+            if (!isSecondHealthBar)
             {
                 circleAttack.SetActive(false);
                 isSecondHealthBar = true;
@@ -209,6 +215,6 @@ public class BossController : MonoBehaviour, IDamageable
     void OnTransform()
     {
         projectileAttack.SetActive(true);
+        isDead = false;
     }
-
 }
